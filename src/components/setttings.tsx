@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import {
   Drawer,
   Divider,
@@ -9,30 +9,30 @@ import {
   SvgIcon,
   TextField,
   MenuItem
-} from '@mui/material'
+} from '@mui/material';
 
-import { Close as CloseIcon } from '@mui/icons-material'
-import { useAppTranslation } from 'hooks'
-import { useSettings } from 'core/contexts/theme-context'
+import { Close as CloseIcon } from '@mui/icons-material';
+import { useSettings } from 'core/contexts/theme-context';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
-  onClose: () => void
-  open: boolean
-}
+  onClose: () => void;
+  open: boolean;
+};
 
 const Settings: React.FC<Props> = ({ onClose, open }) => {
-  const { t, i18n } = useAppTranslation()
+  const { t, i18n } = useTranslation();
 
-  const selectedLanguage = i18n.language
+  const selectedLanguage = i18n.language;
 
   const handleChangeLanguage = (
     e: React.ChangeEvent<HTMLInputElement>
   ): void => {
-    const { value } = e.target
-    void i18n.changeLanguage(value)
-  }
+    const { value } = e.target;
+    void i18n.changeLanguage(value);
+  };
 
-  const { lightMode, switchThemeMode } = useSettings()
+  const { lightMode, switchThemeMode } = useSettings();
 
   return (
     <Drawer
@@ -106,7 +106,7 @@ const Settings: React.FC<Props> = ({ onClose, open }) => {
         </TextField>
       </Box>
     </Drawer>
-  )
-}
+  );
+};
 
-export default Settings
+export default Settings;

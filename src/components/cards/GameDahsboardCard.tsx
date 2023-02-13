@@ -46,17 +46,10 @@ const GameDashboardCard: React.FC<Props> = ({ title, onClick, imgSrc }) => {
           display: 'flex',
           alignItems: 'flex-start',
           justifyContent: 'center',
-          width: '100%',
-          height: '100%'
+          width: '100%'
         }}
       >
-        {imgSrc && (
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/2911/2911124.png"
-            alt="team logo"
-            width="50%"
-          />
-        )}
+        {imgSrc && <img src={imgSrc} alt="team logo" width="50%" />}
       </Box>
     </Box>
   );

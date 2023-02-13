@@ -137,6 +137,7 @@ const TicTacToeGame: React.FC = () => {
   const closeEndGameModal: () => void = () => {
     setEndGameModal(false);
     setEndGameStatus(InitialStateTicTacToeEndGame);
+    setSections(InitialStateTicTacToeSections);
   };
 
   useEffect(() => {
@@ -145,11 +146,21 @@ const TicTacToeGame: React.FC = () => {
     }
   }, [endGameStatus]);
 
+  const getWinPlayerName = () => {
+    if (endGameStatus.winner === 'player1') {
+      return `${playersName.player1} ${t('won')}`;
+    } else if (endGameStatus.winner === 'player2') {
+      return `${playersName.player2} ${t('won')}`;
+    } else {
+      return t('draw');
+    }
+  };
+
   return (
     <PageHolder
       title={t('ticTacToe')}
       onBackclick={() => {
-        console.log('Back clicked');
+        window.history.back();
       }}
     >
       <Box
@@ -169,7 +180,7 @@ const TicTacToeGame: React.FC = () => {
             display: 'flex',
             justifyContent: 'center',
             bgcolor: 'primary.dark',
-            width: '100px',
+            width: '100%',
             mb: 1,
             borderRadius: 1
           }}
@@ -478,13 +489,8 @@ const TicTacToeGame: React.FC = () => {
         }}
       >
         <EndGameTicTacToe
-          title={
-            endGameStatus.winner === 'draw'
-              ? t('draw')
-              : `${endGameStatus.winner} ${t('won')}`
-          }
+          title={getWinPlayerName()}
           handleSubmit={() => {
-            setSections(InitialStateTicTacToeSections);
             closeEndGameModal();
           }}
         />

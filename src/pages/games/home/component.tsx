@@ -23,10 +23,16 @@ const GamePageDashboard: React.FC = () => {
     >
       <GameDashboardCard
         title={t('ticTacToe')}
-        onClick={() => navigate('/games/TicTacToe')}
+        onClick={() => navigate('/games/tic-tac-toe')}
         imgSrc="https://cdn-icons-png.flaticon.com/512/2911/2911124.png"
       />
-      <GameDashboardCard title="Xadrez" onClick={() => {}} />
+
+      <GameDashboardCard
+        title="Xadrez"
+        onClick={() => navigate('/games/chess')}
+        imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Chess_Board.svg/1024px-Chess_Board.svg.png"
+      />
+
       <GameDashboardCard title="Dama" onClick={() => {}} />
     </Grid>
   );

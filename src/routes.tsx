@@ -36,7 +36,16 @@ const routes = [
     element: <AppLayout />,
     children: [
       { path: '', element: <Page.GamePageDashboard /> },
-      { path: 'TicTacToe', element: <Page.TicTacToeGame /> },
+      { path: 'tic-tac-toe', element: <Page.TicTacToeGame /> },
+      { path: '*', element: <Navigate to="/games" /> }
+    ]
+  },
+  {
+    path: 'games/',
+    element: <AppLayout />,
+    children: [
+      { path: '', element: <Page.GamePageDashboard /> },
+      { path: 'chess', element: <Page.ChessGame /> },
       { path: '*', element: <Navigate to="/games" /> }
     ]
   }
