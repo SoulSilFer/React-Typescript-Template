@@ -1,0 +1,9 @@
+export { default as Login } from './auth/login/login-wrapper';
+export { default as NotFound } from './auth/not-found/not-found-wrapper';
+
+export { default as Home } from './app/home/home-wrapper';
+
+export { default as ComponetPage } from './components';
+
+export { default as GamePageDashboard } from './games/home';
+export { default as TicTacToeGame } from './games/tic-tac-toe';
