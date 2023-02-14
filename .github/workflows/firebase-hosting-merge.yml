@@ -19,3 +19,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_BASE_TEMPLATE_VITE_TS }}'
           channelId: live
           projectId: base-template-vite-ts
+          working-repository: ./base-template-vite-ts
