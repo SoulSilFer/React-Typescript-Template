@@ -7,20 +7,23 @@ type Props = {
   title: string;
   onBackclick?: () => void;
   childrenAlign?: 'center' | 'flex-start' | 'flex-end';
+  mainSx?: any;
 };
 
 export const PageHolder: React.FC<Props> = ({
   children,
   title,
   onBackclick,
-  childrenAlign
+  childrenAlign,
+  mainSx
 }) => {
   return (
     <Grid
       container
       sx={{
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        ...mainSx
       }}
     >
       <Box

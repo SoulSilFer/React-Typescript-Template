@@ -23,7 +23,18 @@ export const ptBrTranslations = {
     newGame: 'Novo Jogo',
     cancel: 'Cancelar',
     confirm: 'Confirmar',
-    games: 'Jogos'
+    games: 'Jogos',
+    player: 'Jogador',
+    computer: 'Computador',
+    qtdGames: 'Qtd. de jogos',
+    paper: 'papel',
+    rock: 'pedra',
+    scizor: 'tesoura',
+    theComputerChose: 'O computador escolheu',
+    youWon: 'Você ganhou!',
+    youLost: 'Você perdeu!',
+    jokenpo: 'Pedra, papel e tesoura',
+    chooseYourWeapon: 'Escolha sua arma'
   }
 };
 

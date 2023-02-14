@@ -80,6 +80,73 @@ export type ChessGameStatus = {
   turn: 'white' | 'black';
 };
 
+export const ChessTableInitial: ChessTable = [
+  't',
+  'c',
+  'b',
+  'q',
+  'k',
+  'b',
+  'c',
+  't',
+  'p',
+  'p',
+  'p',
+  'p',
+  'p',
+  'p',
+  'p',
+  'p',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  ' ',
+  'P',
+  'P',
+  'P',
+  'P',
+  'P',
+  'P',
+  'P',
+  'P',
+  'T',
+  'C',
+  'B',
+  'K',
+  'Q',
+  'B',
+  'C',
+  'T'
+];
+
 export const InitialStateChess: ChessGameState = {
   table: [
     't',
@@ -373,7 +440,6 @@ export const ChessGameMove = (
                 table[indexFrom - i] !== ' ' &&
                 table[indexFrom - i] !== value
               ) {
-                console.log(i);
                 checkBegin = false;
               }
             }
@@ -429,7 +495,6 @@ export const ChessGameMove = (
                 table[indexFrom - 8 * i] !== ' ' &&
                 table[indexFrom - 8 * i] !== value
               ) {
-                console.log(i);
                 checkBegin = false;
               }
             }
@@ -589,7 +654,6 @@ export const ChessGameMove = (
 
     case 'c':
       if (indexFrom % 8 === 7) {
-        console.log(indexFrom % 8);
         if (
           checkCavaloP(table[indexFrom + 15]) &&
           indexFrom + 15 > 0 &&
@@ -620,7 +684,6 @@ export const ChessGameMove = (
         }
       } else {
         if (indexFrom % 8 === 6) {
-          console.log(indexFrom % 8);
           if (
             checkCavaloP(table[indexFrom + 15]) &&
             indexFrom + 15 > 0 &&
@@ -665,7 +728,6 @@ export const ChessGameMove = (
           }
         } else {
           if (indexFrom % 8 === 1) {
-            console.log(indexFrom % 8);
             if (
               checkCavaloP(table[indexFrom + 15]) &&
               indexFrom + 15 > 0 &&
@@ -710,7 +772,6 @@ export const ChessGameMove = (
             }
           } else {
             if (indexFrom % 8 === 0) {
-              console.log(indexFrom % 8);
               if (
                 checkCavaloP(table[indexFrom + 17]) &&
                 indexFrom + 15 > 0 &&
@@ -920,7 +981,6 @@ export const ChessGameMove = (
                 table[indexFrom + 9 * i] !== ' ' &&
                 table[indexFrom + 9 * i] !== value
               ) {
-                console.log(i);
                 checkEnd = false;
               }
             }
@@ -1006,7 +1066,6 @@ export const ChessGameMove = (
       counter2 = 0;
 
       for (i = 0; i < 8; i++) {
-        console.log(coluna);
         if (counter <= coluna && checkBegin) {
           if (table[indexFrom - 9 * i] === ' ') {
             table[indexFrom - 9 * i] = 'x';
@@ -1026,7 +1085,6 @@ export const ChessGameMove = (
                 table[indexFrom - 9 * i] !== ' ' &&
                 table[indexFrom - 9 * i] !== value
               ) {
-                console.log(i);
                 checkBegin = false;
               }
             }
@@ -1052,7 +1110,6 @@ export const ChessGameMove = (
                 table[indexFrom + 9 * i] !== ' ' &&
                 table[indexFrom + 9 * i] !== value
               ) {
-                console.log(i);
                 checkEnd = false;
               }
             }
@@ -1155,7 +1212,6 @@ export const ChessGameMove = (
                 table[indexFrom - i] !== ' ' &&
                 table[indexFrom - i] !== value
               ) {
-                console.log(i);
                 checkBegin = false;
               }
             }
@@ -1514,7 +1570,6 @@ export const ChessGameMove = (
                 table[indexFrom - 9 * i] !== ' ' &&
                 table[indexFrom - 9 * i] !== value
               ) {
-                console.log(i);
                 checkBegin = false;
               }
             }
@@ -1541,7 +1596,6 @@ export const ChessGameMove = (
                 table[indexFrom + 9 * i] !== ' ' &&
                 table[indexFrom + 9 * i] !== value
               ) {
-                console.log(i);
                 checkEnd = false;
               }
             }

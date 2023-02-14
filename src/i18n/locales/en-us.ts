@@ -23,7 +23,18 @@ export const enUsTranslations = {
     newGame: 'New Game',
     cancel: 'Cancel',
     confirm: 'Confirm',
-    games: 'Games'
+    games: 'Games',
+    player: 'Player',
+    computer: 'Computer',
+    qtdGames: 'Qtd. of games',
+    paper: 'paper',
+    rock: 'rock',
+    scizor: 'scizor',
+    theComputerChose: 'The computer chose',
+    youWon: 'You won!',
+    youLost: 'You lost!',
+    jokenpo: 'Rock, paper and scizor',
+    chooseYourWeapon: 'Choose your weapon'
   }
 };
 

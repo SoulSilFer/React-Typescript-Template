@@ -8,14 +8,18 @@ import {
   ChessGameStatus,
   InitialStateChess,
   InitialStateChessGameStatus,
-  ChessGameMove
+  ChessGameMove,
+  ChessTableInitial
 } from './types&utils';
+import { BaseModal } from 'components/modals';
+import { EndGameTicTacToe } from 'components/pagesComponents';
 
 const ChessGame: React.FC = () => {
   const [gameState, setGameState] = useState<ChessGameState>(InitialStateChess);
   const [gameStatus, setGameStatus] = useState<ChessGameStatus>(
     InitialStateChessGameStatus
   );
+  const [modal, setModal] = useState<boolean>(false);
 
   const confirm = (value: string, i: number) => {
     const { table, copy, selected, turn } = gameState;
@@ -39,6 +43,34 @@ const ChessGame: React.FC = () => {
       clicked: false,
       turn: value === 'x' ? (turn === 'white' ? 'black' : 'white') : turn
     });
+  };
+
+  useEffect(() => {
+    const { table } = gameState;
+
+    const kingB = table.findIndex((item) => item === 'k');
+    const kingW = table.findIndex((item) => item === 'K');
+
+    if (kingB === -1) {
+      setGameStatus({
+        ...gameStatus,
+        player1: gameStatus.player1 + 1,
+        qtdGame: gameStatus.qtdGame + 1
+      });
+      setGameState(InitialStateChess);
+    } else if (kingW === -1) {
+      setGameStatus({
+        ...gameStatus,
+        player2: gameStatus.player2 + 1,
+        qtdGame: gameStatus.qtdGame + 1
+      });
+      setGameState(InitialStateChess);
+    }
+  }, [gameState]);
+
+  const newGame = () => {
+    setGameState({ ...gameState, table: ChessTableInitial });
+    setModal(!modal);
   };
 
   const renderTable = () => {
@@ -72,7 +104,11 @@ const ChessGame: React.FC = () => {
                     : 'blue'
                   : value !== 'x'
                   ? 'white'
-                  : 'blue'
+                  : 'blue',
+              '&:hover': {
+                backgroundColor: player === 'white' ? 'red' : 'green',
+                cursor: 'pointer'
+              }
             }}
             onClick={() => {
               !clicked
@@ -105,7 +141,11 @@ const ChessGame: React.FC = () => {
                     : 'blue'
                   : value !== 'x'
                   ? 'white'
-                  : 'blue'
+                  : 'blue',
+              '&:hover': {
+                backgroundColor: player === 'white' ? 'red' : 'green',
+                cursor: 'pointer'
+              }
             }}
             onClick={() => {
               !clicked
@@ -190,6 +230,16 @@ const ChessGame: React.FC = () => {
           {renderTable()}
         </Grid>
       </Box>
+
+      <BaseModal
+        handleClose={newGame}
+        open={modal}
+        minSize={{
+          width: '25%'
+        }}
+      >
+        <EndGameTicTacToe title={'jogo finalizado'} handleSubmit={newGame} />
+      </BaseModal>
     </PageHolder>
   );
 };

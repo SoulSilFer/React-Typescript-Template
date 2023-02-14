@@ -12,7 +12,7 @@ const GamePageDashboard: React.FC = () => {
     <Grid
       container
       bgcolor="primary.main"
-      height="100%"
+      height="100vh"
       gridTemplateColumns="repeat(3, 1fr)"
       display="grid"
       gap={2}
@@ -33,7 +33,11 @@ const GamePageDashboard: React.FC = () => {
         imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Chess_Board.svg/1024px-Chess_Board.svg.png"
       />
 
-      <GameDashboardCard title="Dama" onClick={() => {}} />
+      <GameDashboardCard
+        title="jokenpô"
+        imgSrc="static/jokenpo.png"
+        onClick={() => navigate('/games/jokenpo')}
+      />
     </Grid>
   );
 };

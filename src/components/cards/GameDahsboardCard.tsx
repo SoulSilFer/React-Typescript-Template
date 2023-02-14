@@ -19,11 +19,13 @@ const GameDashboardCard: React.FC<Props> = ({ title, onClick, imgSrc }) => {
         boxShadow: 3,
         border: '1px solid black',
         width: 300,
-        height: 300,
+        height: '55%',
+        maxHeight: 300,
         transition: 'all 0.2s ease-in-out',
         '&:hover': {
           boxShadow: '10px 10px 27px -10px rgba(0,0,0,0.75)',
-          height: 500,
+          height: '95%',
+          maxHeight: 600,
           cursor: 'pointer'
         }
       }}
