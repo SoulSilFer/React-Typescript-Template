@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "base-template-vite-ts-56843"
-  }
+    "bs": "base-template-vite-ts-56843"
+  },
+  "targets": {},
+  "etags": {}
 }
