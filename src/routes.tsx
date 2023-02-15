@@ -41,6 +41,14 @@ const routes = [
       { path: 'jokenpo', element: <Page.JokenpoGame /> },
       { path: '*', element: <Navigate to="/games" /> }
     ]
+  },
+  {
+    path: 'functionalities',
+    element: <AppLayout dashboard />,
+    children: [
+      { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
+      { path: '*', element: <Navigate to="/functionalities" /> }
+    ]
   }
 ];
 

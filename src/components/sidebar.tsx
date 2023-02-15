@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   const sections = [
     { name: 'Dashboard', path: 'dashboard', Icon: DashboardIcon },
     { name: t('games'), path: '/games', Icon: DashboardIcon },
-    { name: 'Funcionalidades', path: 'dashboard', Icon: DashboardIcon }
+    { name: 'Funcionalidades', path: '/functionalities', Icon: DashboardIcon }
   ];
 
   const drawer = (

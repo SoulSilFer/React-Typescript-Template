@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid, styled, Typography } from '@mui/material';
 import { BaseModal } from 'components/modals';
 import { PageHolder } from 'components/PageHolder';
 import {
@@ -18,6 +18,27 @@ import {
   TicTacToeEndGame,
   InitialStateTicTacToeEndGame
 } from './types&utils';
+
+const StyledBaseBox = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '190px',
+  height: '190px',
+  backgroundColor: theme.palette.primary.dark,
+  cursor: 'pointer',
+  transition: 'all 0.2s ease-in-out',
+  '&:hover': {
+    backgroundColor: theme.palette.primary.light
+  },
+  '&:active': {
+    backgroundColor: theme.palette.primary.dark
+  }
+}));
+
+const StyledTypography = styled(Typography)(({ theme }) => ({
+  color: theme.palette.primary.contrastText
+}));
 
 const TicTacToeGame: React.FC = () => {
   const { t } = useTranslation();
@@ -185,30 +206,29 @@ const TicTacToeGame: React.FC = () => {
             borderRadius: 1
           }}
         >
-          <Typography color="primary.contrastText">Ranking</Typography>
+          <StyledTypography>Ranking</StyledTypography>
         </Box>
 
-        <Typography
-          color="primary.contrastText"
+        <StyledTypography
           onClick={() => {
             setSavePlayersName(playersName);
             setChangeNameModal(!changeNameModal);
           }}
         >
           {playersName.player1}: {gameStatus.player1}
-        </Typography>
+        </StyledTypography>
 
-        <Typography color="primary.contrastText">
+        <StyledTypography>
           {playersName.player2}: {gameStatus.player2}
-        </Typography>
+        </StyledTypography>
 
-        <Typography color="primary.contrastText">
+        <StyledTypography>
           {t('draws')}: {gameStatus.draws}
-        </Typography>
+        </StyledTypography>
 
-        <Typography color="primary.contrastText">
+        <StyledTypography>
           {t('matches')}: {gameStatus.games}
-        </Typography>
+        </StyledTypography>
       </Box>
 
       <Box
@@ -228,246 +248,111 @@ const TicTacToeGame: React.FC = () => {
           justifyContent="center"
           alignItems="center"
         >
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
               borderRight: '1px solid black',
               borderBottom: '1px solid black',
-              borderTopLeftRadius: 1,
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderTopLeftRadius: 4
             }}
             onClick={() => {
               handleSectionClick('A1');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.A1.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.A1.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
               borderRight: '1px solid black',
-              borderBottom: '1px solid black',
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderBottom: '1px solid black'
             }}
             onClick={() => {
               handleSectionClick('A2');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.A2.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.A2.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
               borderBottom: '1px solid black',
-              borderTopRightRadius: 1,
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderTopRightRadius: 4
             }}
             onClick={() => {
               handleSectionClick('A3');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.A3.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.A3.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
               borderRight: '1px solid black',
-              borderBottom: '1px solid black',
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderBottom: '1px solid black'
             }}
             onClick={() => {
               handleSectionClick('B1');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.B1.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.B1.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
               borderRight: '1px solid black',
-              borderBottom: '1px solid black',
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderBottom: '1px solid black'
             }}
             onClick={() => {
               handleSectionClick('B2');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.B2.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.B2.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
-              borderBottom: '1px solid black',
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderBottom: '1px solid black'
             }}
             onClick={() => {
               handleSectionClick('B3');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.B3.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.B3.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
               borderRight: '1px solid black',
-              borderBottomLeftRadius: 1,
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderBottomLeftRadius: 4
             }}
             onClick={() => {
               handleSectionClick('C1');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.C1.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.C1.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
-              borderRight: '1px solid black',
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderRight: '1px solid black'
             }}
             onClick={() => {
               handleSectionClick('C2');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.C2.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.C2.value}</StyledTypography>
+          </StyledBaseBox>
 
-          <Box
+          <StyledBaseBox
             sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              width: '190px',
-              height: '190px',
-              bgcolor: 'primary.dark',
-              cursor: 'pointer',
-              borderBottomRightRadius: 1,
-              '&:hover': {
-                backgroundColor: 'primary.light'
-              },
-              '&:active': {
-                backgroundColor: 'primary.dark'
-              }
+              borderBottomRightRadius: 4
             }}
             onClick={() => {
               handleSectionClick('C3');
             }}
           >
-            <Typography color="primary.contrastText">
-              {sections.C3.value}
-            </Typography>
-          </Box>
+            <StyledTypography>{sections.C3.value}</StyledTypography>
+          </StyledBaseBox>
         </Grid>
       </Box>
 
