@@ -17,7 +17,9 @@ const lightTheme = createTheme({
       contrastText: '#fff'
     },
     secondary: {
-      main: '#696980'
+      main: '#696980',
+      secondary: '#adb0bb',
+      disabled: '#adb0bb'
     },
     text: {
       primary: colors.blueGrey[900],
@@ -44,14 +46,16 @@ const darkTheme = createTheme({
 
     primary: {
       main: '#8a85ff',
-      contrastText: '#fff'
+      contrastText: '#fff',
+      light: '#a3a0f5'
     },
     secondary: {
       main: '#696980'
     },
     text: {
       primary: '#e6e5e8',
-      secondary: '#adb0bb'
+      secondary: '#adb0bb',
+      disabled: '#adb0bb'
     }
   },
   shadows: [

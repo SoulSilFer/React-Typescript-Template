@@ -11,3 +11,4 @@ export { default as ChessGame } from './games/chess';
 export { default as JokenpoGame } from './games/jokenpo';
 
 export { default as FunctionalitiesHomePageContainer } from './functionalities/home';
+export { default as GetRandomFunctionalityContainer } from './functionalities/get-random';

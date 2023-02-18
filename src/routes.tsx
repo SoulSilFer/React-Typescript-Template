@@ -49,6 +49,15 @@ const routes = [
       { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
       { path: '*', element: <Navigate to="/functionalities" /> }
     ]
+  },
+  {
+    path: 'functionalities/',
+    element: <AppLayout />,
+    children: [
+      { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
+      { path: 'get-random', element: <Page.GetRandomFunctionalityContainer /> },
+      { path: '*', element: <Navigate to="/functionalities" /> }
+    ]
   }
 ];
 

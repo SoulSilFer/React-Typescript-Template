@@ -19,7 +19,11 @@ const AppLayout: React.FC<Props> = ({ dashboard }) => {
   const handleToggleSettingsDrawer = (): void => setSettingsOpen(!settingsOpen);
 
   return (
-    <Box sx={{ bgcolor: 'background.neutral' }}>
+    <Box
+      sx={{
+        bgcolor: 'background.neutral'
+      }}
+    >
       <CssBaseline />
 
       <Topbar

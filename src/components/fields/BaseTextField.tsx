@@ -1,4 +1,4 @@
-import { AddCircleOutline, Help, ModeEdit } from '@mui/icons-material'
+import { AddCircleOutline, Help, ModeEdit } from '@mui/icons-material';
 import {
   FilledInputProps,
   IconButton,
@@ -6,49 +6,49 @@ import {
   InputProps,
   OutlinedInputProps,
   TextField
-} from '@mui/material'
-import React, { Fragment, useState } from 'react'
-import BaseTooltip from './BaseTooltip'
+} from '@mui/material';
+import React, { Fragment, useState } from 'react';
+import BaseTooltip from './BaseTooltip';
 
 type Props = {
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  required?: boolean
-  label: string
-  name: string
-  type?: string
-  autoComplete?: string
-  autoFocus?: boolean
-  fullWidth?: boolean
-  margin?: 'dense' | 'normal' | 'none' | undefined
-  borderRadius?: string
-  error?: boolean
-  helperText?: string
-  endAdornment?: React.ReactNode
-  startAdornment?: React.ReactNode
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  required?: boolean;
+  label: string;
+  name: string;
+  type?: string;
+  autoComplete?: string;
+  autoFocus?: boolean;
+  fullWidth?: boolean;
+  margin?: 'dense' | 'normal' | 'none' | undefined;
+  borderRadius?: string;
+  error?: boolean;
+  helperText?: string;
+  endAdornment?: React.ReactNode;
+  startAdornment?: React.ReactNode;
   InputPropsRest?:
     | Partial<InputProps>
     | Partial<FilledInputProps>
     | Partial<OutlinedInputProps>
-    | undefined
-  placeholder?: string
-  multiline?: boolean
-  rows?: number
-  shrink?: boolean
-  editabled?: boolean
-  maxLength?: number
-  tooltipTitle?: string
-  tooltipContent?: string
-  tooltipContentArray?: string[]
-  value?: string
-  disabled?: boolean
-}
+    | undefined;
+  placeholder?: string;
+  multiline?: boolean;
+  rows?: number;
+  shrink?: boolean;
+  editabled?: boolean;
+  maxLength?: number;
+  tooltipTitle?: string;
+  tooltipContent?: string;
+  tooltipContentArray?: string[];
+  value?: string;
+  disabled?: boolean;
+};
 
 const labelField = (props: any) => {
-  const { label, tooltipTitle, tooltipContent, tooltipContentArray } = props
+  const { label, tooltipTitle, tooltipContent, tooltipContentArray } = props;
   return (
     <Fragment>
       {label}
-      {tooltipTitle && tooltipContent && (
+      {tooltipTitle && (tooltipContent || tooltipContentArray) && (
         <BaseTooltip
           title={tooltipTitle}
           tooltipContent={tooltipContent}
@@ -59,8 +59,8 @@ const labelField = (props: any) => {
         </BaseTooltip>
       )}
     </Fragment>
-  )
-}
+  );
+};
 
 const BaseTextField: React.FC<Props> = ({
   handleChange,
@@ -91,11 +91,11 @@ const BaseTextField: React.FC<Props> = ({
   disabled,
   ...rest
 }) => {
-  const [editCheck, setEditCheck] = useState<boolean>(false)
+  const [editCheck, setEditCheck] = useState<boolean>(false);
 
   const handleClickEdit = () => {
-    setEditCheck(!editCheck)
-  }
+    setEditCheck(!editCheck);
+  };
 
   const editableField = (editabled?: boolean) => {
     return (
@@ -106,8 +106,8 @@ const BaseTextField: React.FC<Props> = ({
           </IconButton>
         )}
       </InputAdornment>
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -116,7 +116,7 @@ const BaseTextField: React.FC<Props> = ({
         required={required}
         value={value}
         margin={margin}
-        disabled={!editCheck ? editabled : false}
+        disabled={disabled}
         fullWidth={fullWidth}
         label={labelField({
           label: label,
@@ -137,13 +137,17 @@ const BaseTextField: React.FC<Props> = ({
           ...InputPropsRest
         }}
         placeholder={placeholder}
-        InputLabelProps={{ shrink: !tooltipTitle ? shrink : true }}
+        InputLabelProps={{ shrink: true }}
         multiline={multiline}
         rows={rows}
         sx={{
           '& .MuiOutlinedInput-root': {
-            borderRadius: borderRadius ? borderRadius : '0.75rem'
+            borderRadius: borderRadius ? borderRadius : '0.75rem',
+            '& .MuiOutlinedInput-notchedOutline': {
+              borderColor: 'primary.main'
+            }
           },
+
           '& .MuiFormLabel-root': {
             display: 'flex',
             alignItems: 'center',
@@ -162,7 +166,7 @@ const BaseTextField: React.FC<Props> = ({
         {...rest}
       />
     </>
-  )
-}
+  );
+};
 
-export default BaseTextField
+export default BaseTextField;

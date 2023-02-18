@@ -35,24 +35,22 @@ const BaseButton: React.FC<Props> = ({
   size
 }) => {
   return (
-    <>
-      <Button
-        type={type}
-        variant={variant}
-        color={color}
-        sx={{
-          borderRadius: '0.75rem',
-          textTransform: 'none',
-          width: size && size.width,
-          height: size && size.height
-        }}
-        onClick={onClick}
-        disabled={disabled}
-        fullWidth={fullWidth}
-      >
-        {title}
-      </Button>
-    </>
+    <Button
+      type={type}
+      variant={variant}
+      color={color}
+      sx={{
+        borderRadius: '0.75rem',
+        textTransform: 'none',
+        width: size && size.width,
+        height: size && size.height
+      }}
+      onClick={onClick}
+      disabled={disabled}
+      fullWidth={fullWidth}
+    >
+      {title}
+    </Button>
   );
 };
 
