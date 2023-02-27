@@ -1,10 +1,8 @@
-import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 import * as Page from './pages';
 
 import AppLayout from './layouts/app';
-import AuthLayout from 'layouts/auth';
 
 const routes = [
   {
@@ -12,14 +10,6 @@ const routes = [
     element: <AppLayout />,
     children: [
       { path: 'home', element: <Page.Home /> },
-      { path: '*', element: <Navigate to="/" /> }
-    ]
-  },
-  {
-    path: 'components',
-    element: <AuthLayout />,
-    children: [
-      { path: '', element: <Page.ComponetPage /> },
       { path: '*', element: <Navigate to="/" /> }
     ]
   },
@@ -43,20 +33,21 @@ const routes = [
     ]
   },
   {
-    path: 'functionalities',
+    path: 'tools',
     element: <AppLayout dashboard />,
     children: [
       { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
-      { path: '*', element: <Navigate to="/functionalities" /> }
+      { path: '*', element: <Navigate to="/tools" /> }
     ]
   },
   {
-    path: 'functionalities/',
+    path: 'tools/',
     element: <AppLayout />,
     children: [
       { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
       { path: 'get-random', element: <Page.GetRandomFunctionalityContainer /> },
-      { path: '*', element: <Navigate to="/functionalities" /> }
+      { path: 'calculator', element: <Page.CalculatorToolContainer /> },
+      { path: '*', element: <Navigate to="/tools" /> }
     ]
   }
 ];

@@ -17,7 +17,7 @@ import {
   InitialStateRandomNumbersChecks,
   RandomNumbers,
   RandomNumbersChecks
-} from './types&utils';
+} from '../types&utils';
 import { BaseButton } from 'components/buttons';
 
 const StyledBox = styled(Box)(({ theme }) => ({
@@ -31,7 +31,7 @@ const StyledBox = styled(Box)(({ theme }) => ({
   minWidth: '765px'
 }));
 
-const GetRandomFunctionality: React.FC = () => {
+const GetRandomNumberFunctionality: React.FC = () => {
   const [randomNumbers, setRandomNumbers] = useState<RandomNumbers>(
     InitialStateRandomNumbers
   );
@@ -166,7 +166,7 @@ const GetRandomFunctionality: React.FC = () => {
           }}
           bgcolor="secondary.main"
         >
-          <Typography color="primary.contrastText">Números</Typography>
+          <Typography color="primary.contrastText">Número</Typography>
         </Box>
 
         <Grid container spacing={1}>
@@ -308,4 +308,4 @@ const GetRandomFunctionality: React.FC = () => {
   );
 };
 
-export default GetRandomFunctionality;
+export default GetRandomNumberFunctionality;

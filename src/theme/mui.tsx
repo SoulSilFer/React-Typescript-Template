@@ -17,9 +17,7 @@ const lightTheme = createTheme({
       contrastText: '#fff'
     },
     secondary: {
-      main: '#696980',
-      secondary: '#adb0bb',
-      disabled: '#adb0bb'
+      main: '#696980'
     },
     text: {
       primary: colors.blueGrey[900],

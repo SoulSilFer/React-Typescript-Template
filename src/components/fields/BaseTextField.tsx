@@ -41,6 +41,7 @@ type Props = {
   tooltipContentArray?: string[];
   value?: string;
   disabled?: boolean;
+  textAlign?: string;
 };
 
 const labelField = (props: any) => {
@@ -89,6 +90,7 @@ const BaseTextField: React.FC<Props> = ({
   tooltipTitle,
   value,
   disabled,
+  textAlign,
   ...rest
 }) => {
   const [editCheck, setEditCheck] = useState<boolean>(false);
@@ -157,6 +159,9 @@ const BaseTextField: React.FC<Props> = ({
               order: 999,
               maxWidth: 300
             }
+          },
+          '& .MuiOutlinedInput-input': {
+            textAlign: textAlign ? textAlign : 'left'
           }
         }}
         inputProps={{

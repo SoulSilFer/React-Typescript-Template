@@ -31,30 +31,20 @@ const AppLayout: React.FC<Props> = ({ dashboard }) => {
         handleSettingsDrawerToggle={handleToggleSettingsDrawer}
       />
 
-      <Sidebar
-        drawerWidth={drawerWidth}
-        mobileOpen={mobileOpen}
-        handleDrawerToggle={handleDrawerToggle}
-      />
-
-      <Box
-        sx={{
-          pl: { xl: `${drawerWidth}px` }
-        }}
-      >
+      <Box>
         {dashboard ? (
-          <Box
-            sx={{
-              m: 2,
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              height: '80vh'
-            }}
-          >
-            <Outlet />
-          </Box>
+          <>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                mb: '100px'
+              }}
+            >
+              <Outlet />
+            </Box>
+          </>
         ) : (
           <Box
             sx={{

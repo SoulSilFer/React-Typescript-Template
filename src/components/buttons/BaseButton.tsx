@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Grid, Typography, Button } from '@mui/material';
+import { Box, Grid, Typography, Button, SxProps } from '@mui/material';
 
 type Props = {
   type?: 'button' | 'submit' | 'reset' | undefined;
@@ -22,6 +22,8 @@ type Props = {
     width?: string;
     height?: string;
   };
+  startIcon?: React.ReactNode;
+  sx?: SxProps;
 };
 
 const BaseButton: React.FC<Props> = ({
@@ -32,7 +34,9 @@ const BaseButton: React.FC<Props> = ({
   onClick,
   disabled,
   fullWidth,
-  size
+  size,
+  startIcon,
+  ...rest
 }) => {
   return (
     <Button
@@ -40,14 +44,19 @@ const BaseButton: React.FC<Props> = ({
       variant={variant}
       color={color}
       sx={{
-        borderRadius: '0.75rem',
+        borderRadius: '10px',
         textTransform: 'none',
+        minWidth: '50px',
         width: size && size.width,
-        height: size && size.height
+        height: size && size.height,
+
+        ...rest.sx
       }}
       onClick={onClick}
       disabled={disabled}
       fullWidth={fullWidth}
+      startIcon={startIcon}
+      {...rest}
     >
       {title}
     </Button>
