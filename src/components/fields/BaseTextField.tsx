@@ -161,7 +161,8 @@ const BaseTextField: React.FC<Props> = ({
             }
           },
           '& .MuiOutlinedInput-input': {
-            textAlign: textAlign ? textAlign : 'left'
+            textAlign: textAlign ? textAlign : 'left',
+            ml: startAdornment ? 1 : 0
           }
         }}
         inputProps={{

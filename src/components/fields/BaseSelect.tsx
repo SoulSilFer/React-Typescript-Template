@@ -36,6 +36,7 @@ export interface SelectFieldBaseProps {
   defaultValue?: string | number;
   size?: 'small' | 'medium' | undefined;
   onClick?: MouseEventHandler<HTMLDivElement>;
+  fullItem?: boolean;
 }
 
 function labelField(props: any) {
@@ -60,6 +61,7 @@ const SelectField: React.FC<SelectFieldBaseProps> = ({
   required,
   size,
   onClick,
+  fullItem,
   ...rest
 }) => {
   const [editCheck, setEditCheck] = useState<boolean>(false);
@@ -141,8 +143,17 @@ const SelectField: React.FC<SelectFieldBaseProps> = ({
       >
         {data &&
           data.map((item, index) => (
-            <MenuItem value={item[1]} key={`${id}-select-${index}`}>
-              {item[0]}
+            <MenuItem
+              value={!fullItem ? item[1] : item[0]}
+              key={`${id}-select-${index}`}
+            >
+              {!fullItem ? (
+                <>{item[0]}</>
+              ) : (
+                <>
+                  {item[0]} - {item[1]}
+                </>
+              )}
             </MenuItem>
           ))}
       </Select>
