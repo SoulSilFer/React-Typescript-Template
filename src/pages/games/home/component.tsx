@@ -1,3 +1,4 @@
+import { Delete } from '@mui/icons-material';
 import { Box, Grid } from '@mui/material';
 import { GameDashboardCard } from 'components/cards';
 import React from 'react';
@@ -24,18 +25,18 @@ const GamePageDashboard: React.FC = () => {
       <GameDashboardCard
         title={t('ticTacToe')}
         onClick={() => navigate('/games/tic-tac-toe')}
-        imgSrc="https://cdn-icons-png.flaticon.com/512/2911/2911124.png"
+        mainIcon={<Delete />}
       />
 
       <GameDashboardCard
         title="Xadrez"
+        mainIcon={<Delete />}
         onClick={() => navigate('/games/chess')}
-        imgSrc="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Chess_Board.svg/1024px-Chess_Board.svg.png"
       />
 
       <GameDashboardCard
         title="jokenpô"
-        imgSrc="static/jokenpo.png"
+        mainIcon={<Delete />}
         onClick={() => navigate('/games/jokenpo')}
       />
     </Grid>

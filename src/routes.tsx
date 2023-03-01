@@ -47,6 +47,7 @@ const routes = [
       { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
       { path: 'get-random', element: <Page.GetRandomFunctionalityContainer /> },
       { path: 'calculator', element: <Page.CalculatorToolContainer /> },
+      { path: 'convert/coin', element: <Page.CoinConverterContainer /> },
       { path: '*', element: <Navigate to="/tools" /> }
     ]
   }

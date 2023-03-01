@@ -44,6 +44,12 @@ const FunctionalitiesHomePage: React.FC = () => {
         onClick={() => navigate('/tools/calculator')}
         mainIcon={<PinRounded />}
       />
+
+      <GameDashboardCard
+        title="Converter"
+        onClick={() => navigate('/tools/convert/coin')}
+        mainIcon={<PinRounded />}
+      />
     </>
   );
 };

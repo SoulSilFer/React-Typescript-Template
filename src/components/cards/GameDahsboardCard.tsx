@@ -67,7 +67,7 @@ const GameDashboardCard: React.FC<Props> = ({
 
         '&:hover': {
           '& .primaryCard': {
-            transform: 'translateY(-10%)',
+            transform: stackButtons ? 'translateY(-10%)' : 'translateY(20%)',
             // boxShadow: '10px 10px 27px -10px rgba(0,0,0,0.75)',
             boxShadow: '0px 0px 28px -10px primary.main'
           },

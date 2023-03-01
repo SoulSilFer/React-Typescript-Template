@@ -13,3 +13,4 @@ export { default as JokenpoGame } from './games/jokenpo';
 export { default as FunctionalitiesHomePageContainer } from './functionalities/home';
 export { default as GetRandomFunctionalityContainer } from './functionalities/get-random';
 export { default as CalculatorToolContainer } from './functionalities/calculator';
+export { default as CoinConverterContainer } from './functionalities/converter/coin';
