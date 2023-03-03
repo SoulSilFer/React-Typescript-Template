@@ -85,7 +85,30 @@ export const enUsTranslations = {
     qtdEqualZero: 'The result quantity number cannot be 0',
     text: 'Text',
     textToBeSorted: 'Text to be sorted',
-    textSpreadByComma: 'Text must be separated by a comma (,)'
+    textSpreadByComma: 'Text must be separated by a comma (,)',
+    randomNumber: 'Random number',
+    randomText: 'Random text',
+    monetaryValue: 'Monetary value',
+    lengthMeasurement: 'Length measurement',
+    temperatureMeasurement: 'Temperature measurement',
+    calculateBmi: 'Calculate BMI',
+    weight: 'Weight',
+    height: 'Height',
+    calculate: 'Calculate',
+    veryUnderweight: 'Very underweight',
+    thinness: 'Thinness',
+    overweight: 'Overweight',
+    obesity: 'Obesity',
+    severeObesity: 'Severe obesity',
+    severa: 'severe',
+    morbid: 'morbid',
+    below: 'Below',
+    inBetween: 'In between',
+    biggerThen: 'Bigger then',
+    bmi: 'BMI',
+    classification: 'Classification',
+    obesityGrade: 'Obesity (grade)',
+    and: 'and'
   }
 };
 

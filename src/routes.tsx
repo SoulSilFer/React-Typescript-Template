@@ -46,7 +46,13 @@ const routes = [
     children: [
       { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
       { path: 'get-random', element: <Page.GetRandomFunctionalityContainer /> },
-      { path: 'calculator', element: <Page.CalculatorToolContainer /> },
+
+      {
+        path: 'calculate/calculator',
+        element: <Page.CalculatorToolContainer />
+      },
+      { path: 'calculate/imc', element: <Page.CalculateIMCContainer /> },
+
       { path: 'convert/coin', element: <Page.CoinConverterContainer /> },
       {
         path: 'convert/size',

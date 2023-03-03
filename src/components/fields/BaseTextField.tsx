@@ -42,6 +42,7 @@ type Props = {
   value?: string;
   disabled?: boolean;
   textAlign?: string;
+  onKeyDown?: React.KeyboardEventHandler<HTMLDivElement> | undefined;
 };
 
 const labelField = (props: any) => {
@@ -91,6 +92,7 @@ const BaseTextField: React.FC<Props> = ({
   value,
   disabled,
   textAlign,
+  onKeyDown,
   ...rest
 }) => {
   const [editCheck, setEditCheck] = useState<boolean>(false);
@@ -142,6 +144,7 @@ const BaseTextField: React.FC<Props> = ({
         InputLabelProps={{ shrink: true }}
         multiline={multiline}
         rows={rows}
+        onKeyDown={onKeyDown}
         sx={{
           '& .MuiOutlinedInput-root': {
             borderRadius: borderRadius ? borderRadius : '0.75rem',

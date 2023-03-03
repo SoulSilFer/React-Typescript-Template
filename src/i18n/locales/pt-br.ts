@@ -85,7 +85,30 @@ export const ptBrTranslations = {
     qtdEqualZero: 'O número da quantidade de resultados não pode ser 0',
     text: 'Texto',
     textToBeSorted: 'Textos a serem sortidos',
-    textSpreadByComma: 'Os textos devem ser separados por vírgula (,)'
+    textSpreadByComma: 'Os textos devem ser separados por vírgula (,)',
+    randomNumber: 'Número aleatório',
+    randomText: 'Texto aleatório',
+    monetaryValue: 'Valor monetário',
+    lengthMeasurement: 'Medida de tamanho',
+    temperatureMeasurement: 'Medida de temperatura',
+    calculateBmi: 'Calcular IMC',
+    weight: 'Peso',
+    height: 'Altura',
+    calculate: 'Calcular',
+    veryUnderweight: 'Muito abaixo do peso',
+    thinness: 'Magreza',
+    overweight: 'Sobrepeso',
+    obesity: 'Obesidade',
+    severeObesity: 'Obesidade grave',
+    severa: 'severa',
+    morbid: 'mórbida',
+    below: 'Abaixo de',
+    inBetween: 'Entre',
+    biggerThen: 'Maior que',
+    bmi: 'IMC',
+    classification: 'Classificação',
+    obesityGrade: 'Obesidade (Grau)',
+    and: 'e'
   }
 };
 

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import {
   AbcRounded,
+  AccessibilityNewRounded,
   AttachMoneyRounded,
   CalculateRounded,
   DeviceThermostatRounded,
@@ -23,7 +24,7 @@ const FunctionalitiesHomePage: React.FC = () => {
     <>
       <GameDashboardCard
         stackButtonsLength={2}
-        title="Pegar aleatório"
+        title={t('getRandom')}
         onClick={() =>
           navigate('/tools/get-random', {
             state: { all: true }
@@ -33,7 +34,7 @@ const FunctionalitiesHomePage: React.FC = () => {
         stackButtons={[
           {
             icon: <PinRounded />,
-            title: 'Número aleatório',
+            title: t('randomNumber'),
             onClick: () =>
               navigate('/tools/get-random', {
                 state: { number: true }
@@ -41,7 +42,7 @@ const FunctionalitiesHomePage: React.FC = () => {
           },
           {
             icon: <AbcRounded />,
-            title: 'Texto aleatório',
+            title: t('randomText'),
             onClick: () =>
               navigate('/tools/get-random', {
                 state: { string: true }
@@ -51,30 +52,37 @@ const FunctionalitiesHomePage: React.FC = () => {
       />
 
       <GameDashboardCard
-        title="Calculadora"
-        onClick={() => navigate('/tools/calculator')}
+        title={t('calculator')}
+        onClick={() => navigate('/tools/calculate/calculator')}
         mainIcon={<CalculateRounded />}
-        stackButtonsLength={0}
+        stackButtonsLength={1}
+        stackButtons={[
+          {
+            icon: <AccessibilityNewRounded />,
+            title: 'Calcular IMC',
+            onClick: () => navigate('/tools/calculate/imc')
+          }
+        ]}
       />
 
       <GameDashboardCard
-        title="Converter"
+        title={t('convert')}
         mainIcon={<SwapHorizRounded />}
         stackButtonsLength={3}
         stackButtons={[
           {
             icon: <AttachMoneyRounded />,
-            title: 'Valor monetário',
+            title: t('monetaryValue'),
             onClick: () => navigate('/tools/convert/coin')
           },
           {
             icon: <StraightenRounded />,
-            title: 'Unidade de comprimento',
+            title: t('lengthMeasurement'),
             onClick: () => navigate('/tools/convert/size')
           },
           {
             icon: <DeviceThermostatRounded />,
-            title: 'Temperatura',
+            title: t('temperatureMeasurement'),
             onClick: () => navigate('/tools/convert/temperature')
           }
         ]}
