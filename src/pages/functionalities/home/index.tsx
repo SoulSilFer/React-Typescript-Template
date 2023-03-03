@@ -1,6 +1,6 @@
 import React from 'react';
 
-import FunctionalitiesHomePage from './component';
+import FunctionalitiesHomePage from './render';
 
 const FunctionalitiesHomePageContainer: React.FC = () => {
   return <FunctionalitiesHomePage />;

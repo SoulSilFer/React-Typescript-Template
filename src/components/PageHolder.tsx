@@ -1,21 +1,32 @@
-import { ArrowBack, ArrowCircleLeft } from '@mui/icons-material';
-import { Box, Grid, Typography } from '@mui/material';
+import { ArrowCircleLeft } from '@mui/icons-material';
+import { Box, Grid, Typography, styled } from '@mui/material';
 import React from 'react';
+
+const StyledContainer = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  border: `1px solid ${theme.palette.primary.main}`,
+  padding: '1rem',
+  marginBottom: '1rem',
+  borderRadius: '0.75rem'
+}));
 
 type Props = {
   children: React.ReactNode;
   title: string;
-  onBackclick?: () => void;
   childrenAlign?: 'center' | 'flex-start' | 'flex-end';
   mainSx?: any;
+  maxWidth?: number | string;
+  mt?: number | string;
 };
 
 export const PageHolder: React.FC<Props> = ({
   children,
   title,
-  onBackclick,
   childrenAlign,
-  mainSx
+  mainSx,
+  maxWidth,
+  mt
 }) => {
   return (
     <Grid
@@ -47,7 +58,7 @@ export const PageHolder: React.FC<Props> = ({
               color: 'primary.light'
             }
           }}
-          onClick={onBackclick}
+          onClick={() => window.history.back()}
         />
 
         <Typography
@@ -68,7 +79,14 @@ export const PageHolder: React.FC<Props> = ({
           mb: 2
         }}
       >
-        {children}
+        <StyledContainer
+          sx={{
+            maxWidth,
+            mt: mt ? mt : 2
+          }}
+        >
+          {children}
+        </StyledContainer>
       </Box>
     </Grid>
   );

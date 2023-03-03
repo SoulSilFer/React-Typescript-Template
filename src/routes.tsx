@@ -52,6 +52,10 @@ const routes = [
         path: 'convert/size',
         element: <Page.LengthMeasurementUnitConverterContainer />
       },
+      {
+        path: 'convert/temperature',
+        element: <Page.TemperatureConverterContainer />
+      },
       { path: '*', element: <Navigate to="/tools" /> }
     ]
   }

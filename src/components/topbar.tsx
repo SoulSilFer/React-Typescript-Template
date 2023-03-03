@@ -1,37 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import {
-  Badge,
-  Box,
-  IconButton,
-  Toolbar,
-  styled,
-  Button,
-  Menu,
-  MenuItem,
-  Typography
-} from '@mui/material';
+import React, { useState } from 'react';
+import { Box, IconButton, Toolbar, styled, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import {
-  AbcRounded,
   AccessibilityNewRounded,
   CalculateRounded,
   CasinoRounded,
   ConstructionRounded,
-  ContentCutRounded,
   DeviceThermostatRounded,
   GamesRounded,
   Grid3x3Rounded,
-  LandscapeRounded,
   Menu as MenuIcon,
   MonetizationOnRounded,
-  PanToolRounded,
-  PinRounded,
   Settings as SettingsIcon,
-  ShuffleOnRounded,
-  ShuffleRounded,
-  SportsEsportsRounded
+  ShuffleRounded
 } from '@mui/icons-material';
+
 import { useWindowDimensions } from 'utils/getWindowDimensions';
 import { RoutesEnum } from 'utils/routes-enum';
 

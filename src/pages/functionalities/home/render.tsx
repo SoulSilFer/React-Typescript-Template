@@ -6,6 +6,7 @@ import {
   AbcRounded,
   AttachMoneyRounded,
   CalculateRounded,
+  DeviceThermostatRounded,
   PinRounded,
   ShuffleRounded,
   StraightenRounded,
@@ -21,6 +22,7 @@ const FunctionalitiesHomePage: React.FC = () => {
   return (
     <>
       <GameDashboardCard
+        stackButtonsLength={2}
         title="Pegar aleatório"
         onClick={() =>
           navigate('/tools/get-random', {
@@ -52,11 +54,13 @@ const FunctionalitiesHomePage: React.FC = () => {
         title="Calculadora"
         onClick={() => navigate('/tools/calculator')}
         mainIcon={<CalculateRounded />}
+        stackButtonsLength={0}
       />
 
       <GameDashboardCard
         title="Converter"
         mainIcon={<SwapHorizRounded />}
+        stackButtonsLength={3}
         stackButtons={[
           {
             icon: <AttachMoneyRounded />,
@@ -67,6 +71,11 @@ const FunctionalitiesHomePage: React.FC = () => {
             icon: <StraightenRounded />,
             title: 'Unidade de comprimento',
             onClick: () => navigate('/tools/convert/size')
+          },
+          {
+            icon: <DeviceThermostatRounded />,
+            title: 'Temperatura',
+            onClick: () => navigate('/tools/convert/temperature')
           }
         ]}
       />

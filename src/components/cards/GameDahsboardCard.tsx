@@ -12,13 +12,15 @@ type Props = {
     title: string;
     onClick: () => void;
   }[];
+  stackButtonsLength: number;
 };
 
 const GameDashboardCard: React.FC<Props> = ({
   title,
   onClick,
   mainIcon,
-  stackButtons
+  stackButtons,
+  stackButtonsLength
 }) => {
   return (
     <Box
@@ -68,26 +70,26 @@ const GameDashboardCard: React.FC<Props> = ({
         '&:hover': {
           '& .primaryCard': {
             transform: stackButtons ? 'translateY(-10%)' : 'translateY(20%)',
-            // boxShadow: '10px 10px 27px -10px rgba(0,0,0,0.75)',
-            boxShadow: '0px 0px 28px -10px primary.main'
+            boxShadow: '10px 10px 27px -10px rgba(0,0,0,0.75)'
           },
 
           '& .secondaryCard': {
             boxShadow: '10px 10px 27px -10px rgba(0,0,0,0.75)',
             visibility: 'visible',
             animation: 'topToBottom 0.3s ease-in-out',
+
             '@keyframes topToBottom': {
               '0%': {
                 opacity: 0,
                 transform: 'translateY(0%)'
               },
               '100%': {
-                opacity: 1,
-                transform: 'translateY(60%)'
+                opacity: 1
               }
             },
-            transform: 'translateY(60%)',
-            height: 140,
+            transform:
+              stackButtonsLength === 3 ? 'translateY(40%)' : 'translateY(60%)',
+            height: stackButtonsLength === 3 ? 195 : 135,
             opacity: 1
           }
         }

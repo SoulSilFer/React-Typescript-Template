@@ -9,11 +9,6 @@ export type RandomNumbersChecks = {
   insertOwnNumbers: boolean;
 };
 
-export type BlockButton = {
-  message: string;
-  disabled: boolean;
-};
-
 export const InitialStateRandomNumbers = {
   minValue: '',
   maxValue: '',
@@ -23,21 +18,4 @@ export const InitialStateRandomNumbers = {
 
 export const InitialStateRandomNumbersChecks = {
   insertOwnNumbers: false
-};
-
-export const InitialStateBlockButton = {
-  message: '',
-  disabled: false
-};
-
-export type RandomText = {
-  qtd: string;
-  inputText: string;
-  result: string;
-};
-
-export const InitialStateRandomText: RandomText = {
-  qtd: '',
-  inputText: '',
-  result: ''
 };

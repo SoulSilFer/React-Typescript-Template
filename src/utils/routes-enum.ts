@@ -6,5 +6,11 @@ export enum RoutesEnum {
 
   // Tools
   TOOLS_DASHBOARD = 'tools',
-  TOOLS_GET_RANDOM = '/tools/get-random'
+  TOOLS_GET_RANDOM = '/tools/get-random',
+  TOOLS_CALCULATOR = '/tools/calculator',
+
+  // Converter
+  TOOLS_CONVERTER_COIN = '/tools/converter/coin',
+  TOOLS_CONVERTER_SIZE = '/tools/converter/size',
+  TOOLS_CONVERTER_TEMPERATURE = '/tools/converter/temperature'
 }
