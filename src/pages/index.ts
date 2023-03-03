@@ -14,3 +14,4 @@ export { default as FunctionalitiesHomePageContainer } from './functionalities/h
 export { default as GetRandomFunctionalityContainer } from './functionalities/get-random';
 export { default as CalculatorToolContainer } from './functionalities/calculator';
 export { default as CoinConverterContainer } from './functionalities/converter/coin';
+export { default as LengthMeasurementUnitConverterContainer } from './functionalities/converter/size';

@@ -5,7 +5,7 @@ import { BaseButton } from 'components/buttons';
 
 type Props = {
   title: string;
-  onClick: () => void;
+  onClick?: () => void;
   mainIcon: JSX.Element;
   stackButtons?: {
     icon: JSX.Element;
@@ -43,7 +43,7 @@ const GameDashboardCard: React.FC<Props> = ({
           p: 1,
           transition: 'all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55)',
           transform: 'translateY(40%)',
-          cursor: 'pointer',
+          cursor: Boolean(onClick) ? 'pointer' : 'default',
 
           '& .MuiSvgIcon-root': {
             width: 40,

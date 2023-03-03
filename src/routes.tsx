@@ -48,6 +48,10 @@ const routes = [
       { path: 'get-random', element: <Page.GetRandomFunctionalityContainer /> },
       { path: 'calculator', element: <Page.CalculatorToolContainer /> },
       { path: 'convert/coin', element: <Page.CoinConverterContainer /> },
+      {
+        path: 'convert/size',
+        element: <Page.LengthMeasurementUnitConverterContainer />
+      },
       { path: '*', element: <Navigate to="/tools" /> }
     ]
   }

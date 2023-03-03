@@ -204,7 +204,6 @@ const CoinConverter: React.FC = () => {
               name="input"
               value={values.input}
               fullWidth
-              startAdornment={selectedLanguage === 'pt-BR' ? 'R$' : '$'}
               endAdornment={
                 <InputAdornment position="end">
                   <BaseButton
@@ -252,10 +251,6 @@ const CoinConverter: React.FC = () => {
           fullWidth
           disabled
           value={values.result}
-          startAdornment={
-            values.result === ConvertCoinsInitialValues.result &&
-            (selectedLanguage === 'pt-BR' ? 'R$' : '$')
-          }
         />
       </StyledContainer>
     </PageHolder>

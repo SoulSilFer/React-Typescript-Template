@@ -1,9 +1,18 @@
-import { AbcRounded, Delete, PinRounded } from '@mui/icons-material';
-import { Box, Grid } from '@mui/material';
-import { GameDashboardCard } from 'components/cards';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+
+import {
+  AbcRounded,
+  AttachMoneyRounded,
+  CalculateRounded,
+  PinRounded,
+  ShuffleRounded,
+  StraightenRounded,
+  SwapHorizRounded
+} from '@mui/icons-material';
+
+import { GameDashboardCard } from 'components/cards';
 
 const FunctionalitiesHomePage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +27,7 @@ const FunctionalitiesHomePage: React.FC = () => {
             state: { all: true }
           })
         }
-        mainIcon={<PinRounded />}
+        mainIcon={<ShuffleRounded />}
         stackButtons={[
           {
             icon: <PinRounded />,
@@ -42,13 +51,24 @@ const FunctionalitiesHomePage: React.FC = () => {
       <GameDashboardCard
         title="Calculadora"
         onClick={() => navigate('/tools/calculator')}
-        mainIcon={<PinRounded />}
+        mainIcon={<CalculateRounded />}
       />
 
       <GameDashboardCard
         title="Converter"
-        onClick={() => navigate('/tools/convert/coin')}
-        mainIcon={<PinRounded />}
+        mainIcon={<SwapHorizRounded />}
+        stackButtons={[
+          {
+            icon: <AttachMoneyRounded />,
+            title: 'Valor monetário',
+            onClick: () => navigate('/tools/convert/coin')
+          },
+          {
+            icon: <StraightenRounded />,
+            title: 'Unidade de comprimento',
+            onClick: () => navigate('/tools/convert/size')
+          }
+        ]}
       />
     </>
   );
