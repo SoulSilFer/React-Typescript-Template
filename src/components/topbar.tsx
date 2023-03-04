@@ -30,7 +30,8 @@ const MenuHolder = styled(Box)(({ theme }) => ({
   minHeight: '25px',
   transition: 'opacity 0.1s ease-in-out',
   padding: '3px',
-  flexWrap: 'wrap'
+  flexWrap: 'wrap',
+  minWidth: '180px'
 }));
 
 const SubMenuHolder = styled(Box)(({ theme, width }) => ({
@@ -213,6 +214,7 @@ const Topbar: React.FC<TopbarProps> = ({
                   onMouseEnter={menu.actions?.enter}
                   onMouseLeave={menu.actions?.leave}
                   sx={{
+                    zIndex: 999,
                     visibility: menu.itemsState ? 'visible' : 'hidden',
                     opacity: menu.itemsState ? 1 : 0,
                     width:

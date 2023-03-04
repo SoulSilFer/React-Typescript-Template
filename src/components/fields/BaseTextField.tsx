@@ -5,7 +5,8 @@ import {
   InputAdornment,
   InputProps,
   OutlinedInputProps,
-  TextField
+  TextField,
+  SxProps
 } from '@mui/material';
 import React, { Fragment, useState } from 'react';
 import BaseTooltip from './BaseTooltip';
@@ -43,6 +44,7 @@ type Props = {
   disabled?: boolean;
   textAlign?: string;
   onKeyDown?: React.KeyboardEventHandler<HTMLDivElement> | undefined;
+  sx?: SxProps;
 };
 
 const labelField = (props: any) => {
@@ -93,6 +95,7 @@ const BaseTextField: React.FC<Props> = ({
   disabled,
   textAlign,
   onKeyDown,
+  sx,
   ...rest
 }) => {
   const [editCheck, setEditCheck] = useState<boolean>(false);
@@ -166,7 +169,8 @@ const BaseTextField: React.FC<Props> = ({
           '& .MuiOutlinedInput-input': {
             textAlign: textAlign ? textAlign : 'left',
             ml: startAdornment ? 1 : 0
-          }
+          },
+          ...sx
         }}
         inputProps={{
           maxLength,

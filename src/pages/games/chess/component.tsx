@@ -162,12 +162,7 @@ const ChessGame: React.FC = () => {
   };
 
   return (
-    <PageHolder
-      title="Xadrez"
-      onBackclick={() => {
-        window.history.back();
-      }}
-    >
+    <PageHolder title="Xadrez">
       <Box
         sx={{
           display: 'flex',

@@ -95,7 +95,7 @@ const CoinConverter: React.FC<Props> = ({
       )}
 
       <Grid container spacing={2} mb={3}>
-        <Grid item xs={10}>
+        <Grid item xs={9}>
           <BaseTextField
             handleChange={handleInputValues}
             label={t('value')}
@@ -115,7 +115,7 @@ const CoinConverter: React.FC<Props> = ({
           />
         </Grid>
 
-        <Grid item xs={2}>
+        <Grid item xs={3}>
           <BaseButton
             onClick={handleSubmit}
             title={t('convert')}

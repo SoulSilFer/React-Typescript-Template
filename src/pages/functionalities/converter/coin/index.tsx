@@ -45,12 +45,13 @@ const CoinConverterContainer: React.FC = () => {
 
   const handleInputValues = (e: React.ChangeEvent<HTMLInputElement>) => {
     resetApiF();
-
     const { name, value } = e.target;
+
+    const formatValue = value.replace(/[^0-9.,]/g, '');
 
     setValues((prev) => ({
       ...prev,
-      [name]: value
+      [name]: formatValue
     }));
   };
 

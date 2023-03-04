@@ -5,8 +5,6 @@ import Topbar from 'components/topbar';
 import SettingsDrawer from 'components/setttings';
 import Sidebar from 'components/sidebar';
 
-const drawerWidth = 280;
-
 type Props = {
   dashboard?: boolean;
 };
@@ -31,30 +29,29 @@ const AppLayout: React.FC<Props> = ({ dashboard }) => {
         handleSettingsDrawerToggle={handleToggleSettingsDrawer}
       />
 
-      <Box>
-        {dashboard ? (
-          <>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: 'center',
-                mb: '100px'
-              }}
-            >
-              <Outlet />
-            </Box>
-          </>
-        ) : (
+      {dashboard ? (
+        <>
           <Box
             sx={{
-              m: 2
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              mb: '100px',
+              height: '70vh'
             }}
           >
             <Outlet />
           </Box>
-        )}
-      </Box>
+        </>
+      ) : (
+        <Box
+          sx={{
+            m: 2
+          }}
+        >
+          <Outlet />
+        </Box>
+      )}
 
       <SettingsDrawer
         open={settingsOpen}

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Box, Stack, Typography } from '@mui/material';
 import { BaseButton } from 'components/buttons';
+import { useWindowDimensions } from 'utils/getWindowDimensions';
 
 type Props = {
   title: string;
@@ -15,19 +16,23 @@ type Props = {
   stackButtonsLength: number;
 };
 
-const GameDashboardCard: React.FC<Props> = ({
+const DashboardMainCard: React.FC<Props> = ({
   title,
   onClick,
   mainIcon,
   stackButtons,
   stackButtonsLength
 }) => {
+  const windowWidth = useWindowDimensions().width;
+
   return (
     <Box
       key={title}
       sx={{
-        width: 250,
-        flex: '0 0 250px',
+        width: `calc(${windowWidth}px - 80px)`,
+        flex: `0 0 calc(${windowWidth}px - 80px)`,
+        maxWidth: 250,
+        minWidth: 200,
         color: 'primary.contrastText',
         position: 'relative',
         margin: '40px',
@@ -114,7 +119,8 @@ const GameDashboardCard: React.FC<Props> = ({
                 sx={{
                   display: 'flex',
                   justifyContent: 'flex-start',
-                  textTransform: 'none'
+                  textTransform: 'none',
+                  borderRadius: '0.75rem'
                 }}
                 onClick={button.onClick}
                 key={index}
@@ -127,4 +133,4 @@ const GameDashboardCard: React.FC<Props> = ({
   );
 };
 
-export default GameDashboardCard;
+export default DashboardMainCard;

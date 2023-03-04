@@ -1,6 +1,6 @@
 import { Delete } from '@mui/icons-material';
 import { Box, Grid } from '@mui/material';
-import { GameDashboardCard } from 'components/cards';
+import { DashboardMainCard } from 'components/cards';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
@@ -22,21 +22,24 @@ const GamePageDashboard: React.FC = () => {
       justifyItems="center"
       alignItems="center"
     >
-      <GameDashboardCard
+      <DashboardMainCard
         title={t('ticTacToe')}
         onClick={() => navigate('/games/tic-tac-toe')}
         mainIcon={<Delete />}
+        stackButtonsLength={0}
       />
 
-      <GameDashboardCard
+      <DashboardMainCard
         title="Xadrez"
         mainIcon={<Delete />}
+        stackButtonsLength={0}
         onClick={() => navigate('/games/chess')}
       />
 
-      <GameDashboardCard
+      <DashboardMainCard
         title="jokenpô"
         mainIcon={<Delete />}
+        stackButtonsLength={0}
         onClick={() => navigate('/games/jokenpo')}
       />
     </Grid>

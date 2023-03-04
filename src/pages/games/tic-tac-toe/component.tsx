@@ -178,12 +178,7 @@ const TicTacToeGame: React.FC = () => {
   };
 
   return (
-    <PageHolder
-      title={t('ticTacToe')}
-      onBackclick={() => {
-        window.history.back();
-      }}
-    >
+    <PageHolder title={t('ticTacToe')}>
       <Box
         sx={{
           display: 'flex',

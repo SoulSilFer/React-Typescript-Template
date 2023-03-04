@@ -170,11 +170,6 @@ const JokenpoGame: React.FC = () => {
   return (
     <PageHolder
       title="Xadrez"
-      onBackclick={() => {
-        setGameState(InitialStateJokenpoGame);
-        setRanking(InitialStateJokenpoGameRanking);
-        window.history.back();
-      }}
       mainSx={{
         position: 'relative'
       }}

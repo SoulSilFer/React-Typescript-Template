@@ -15,7 +15,7 @@ type Props = {
     | 'warning'
     | undefined;
   title: string;
-  onClick: () => void;
+  onClick?: () => void;
   disabled?: boolean;
   fullWidth?: boolean;
   size?: {
@@ -36,6 +36,7 @@ const BaseButton: React.FC<Props> = ({
   fullWidth,
   size,
   startIcon,
+  sx,
   ...rest
 }) => {
   return (
@@ -44,13 +45,13 @@ const BaseButton: React.FC<Props> = ({
       variant={variant}
       color={color}
       sx={{
-        borderRadius: '10px',
+        borderRadius: '0.75rem',
         textTransform: 'none',
         minWidth: '50px',
         width: size && size.width,
         height: size && size.height,
 
-        ...rest.sx
+        ...sx
       }}
       onClick={onClick}
       disabled={disabled}
