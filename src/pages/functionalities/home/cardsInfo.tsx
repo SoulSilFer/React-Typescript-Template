@@ -95,3 +95,16 @@ export const ConvertBody = (t: any) => {
 
   return obj;
 };
+
+export const ToDoListBody = (t: any) => {
+  const obj = {
+    title: 'To do list',
+    onClick: {
+      to: '/tools/to-do-list'
+    },
+    mainIcon: <SwapHorizRounded />,
+    stackButtons: []
+  };
+
+  return obj;
+};

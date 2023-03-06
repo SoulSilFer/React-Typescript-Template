@@ -23,6 +23,7 @@ type Props = {
     height?: string;
   };
   startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
   sx?: SxProps;
 };
 
@@ -37,6 +38,7 @@ const BaseButton: React.FC<Props> = ({
   size,
   startIcon,
   sx,
+  endIcon,
   ...rest
 }) => {
   return (
@@ -47,16 +49,15 @@ const BaseButton: React.FC<Props> = ({
       sx={{
         borderRadius: '0.75rem',
         textTransform: 'none',
-        minWidth: '50px',
         width: size && size.width,
         height: size && size.height,
-
         ...sx
       }}
       onClick={onClick}
       disabled={disabled}
       fullWidth={fullWidth}
       startIcon={startIcon}
+      endIcon={endIcon}
       {...rest}
     >
       {title}

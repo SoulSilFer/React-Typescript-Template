@@ -35,7 +35,7 @@ const BaseModal: React.FC<Props> = ({
         sx={{
           maxWidth: '80%',
           maxHeight: '80%',
-          backgroundColor: 'white',
+          backgroundColor: 'background.default',
           borderRadius: '10px',
           padding: '20px',
           '&:focus': {

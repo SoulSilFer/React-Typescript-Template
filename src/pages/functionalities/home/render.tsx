@@ -6,7 +6,12 @@ import { Box, styled } from '@mui/material';
 
 import { DashboardMainCard } from 'components/cards';
 import { useWindowDimensions } from 'utils/getWindowDimensions';
-import { CalculateBody, ConvertBody, GetRandomBody } from './cardsInfo';
+import {
+  CalculateBody,
+  ConvertBody,
+  GetRandomBody,
+  ToDoListBody
+} from './cardsInfo';
 import { BaseButton } from 'components/buttons';
 
 const StyledContainer = styled(Box)(({ theme }) => ({
@@ -28,6 +33,7 @@ const FunctionalitiesHomePage: React.FC = () => {
   const getRandom = GetRandomBody(t);
   const calculate = CalculateBody(t);
   const convert = ConvertBody(t);
+  const toDoLit = ToDoListBody(t);
 
   if (windowWidth > 350) {
     return (
@@ -76,6 +82,13 @@ const FunctionalitiesHomePage: React.FC = () => {
           }))}
           title={convert.title}
           onClick={() => navigate(convert.onClick.to)}
+        />
+
+        <DashboardMainCard
+          mainIcon={toDoLit.mainIcon}
+          stackButtonsLength={toDoLit.stackButtons.length}
+          onClick={() => navigate(toDoLit.onClick.to)}
+          title={toDoLit.title}
         />
       </Box>
     );

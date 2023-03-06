@@ -108,7 +108,15 @@ export const enUsTranslations = {
     bmi: 'BMI',
     classification: 'Classification',
     obesityGrade: 'Obesity (grade)',
-    and: 'and'
+    and: 'and',
+    toDoList: 'To do list',
+    add: 'Add',
+    title: 'Title',
+    description: 'Description',
+    delete: 'Delete',
+    createAt: 'Create: ',
+    finalizedAt: 'Finished: ',
+    at: 'at'
   }
 };
 

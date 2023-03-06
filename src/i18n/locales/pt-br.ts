@@ -22,7 +22,7 @@ export const ptBrTranslations = {
     won: 'ganhou',
     newGame: 'Novo Jogo',
     cancel: 'Cancelar',
-    confirm: 'Confirmar',
+    confirm: 'Confirm',
     games: 'Jogos',
     player: 'Jogador',
     computer: 'Computador',
@@ -108,7 +108,15 @@ export const ptBrTranslations = {
     bmi: 'IMC',
     classification: 'Classificação',
     obesityGrade: 'Obesidade (Grau)',
-    and: 'e'
+    and: 'e',
+    toDoList: 'Lista de afazeres',
+    add: 'Adicionar',
+    title: 'Título',
+    description: 'Descrição',
+    delete: 'Apagar',
+    createAt: 'Criado: ',
+    finalizedAt: 'Concluído: ',
+    at: 'as'
   }
 };
 
