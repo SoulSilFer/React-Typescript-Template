@@ -22,7 +22,7 @@ export const ptBrTranslations = {
     won: 'ganhou',
     newGame: 'Novo Jogo',
     cancel: 'Cancelar',
-    confirm: 'Confirm',
+    confirm: 'Confirmar',
     games: 'Jogos',
     player: 'Jogador',
     computer: 'Computador',
@@ -116,7 +116,14 @@ export const ptBrTranslations = {
     delete: 'Apagar',
     createAt: 'Criado: ',
     finalizedAt: 'Concluído: ',
-    at: 'as'
+    at: 'as',
+    sun: 'Domingo',
+    mon: 'Segunda-Feira',
+    tue: 'Terça-Feira',
+    wed: 'Quarta-Feira',
+    thu: 'Quinta-Feira',
+    fri: 'Sexta-Feira',
+    sat: 'Sábado'
   }
 };
 

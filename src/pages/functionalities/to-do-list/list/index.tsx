@@ -6,14 +6,16 @@ import { LocalStorage } from 'core/infra';
 import ToDoListRender from './render';
 import { ToDoList, ToDoListObj } from './types&utils';
 import { useTranslation } from 'react-i18next';
+import { dateAndTime } from '../utils';
+import { PageHolder } from 'components/PageHolder';
 
 const ToDoListContainer: React.FC = () => {
   const { t } = useTranslation();
   const localStorage = new LocalStorage();
 
   const [toDoListArray, setToDoListArray] = useState<ToDoList[]>([]);
-  const [modal, setModal] = useState<boolean>(false);
   const [obj, setObj] = useState<ToDoList>(ToDoListObj);
+  const [modal, setModal] = useState<boolean>(false);
   const [deleteTitle, setDeleteTitle] = useState<'delete' | 'confirm'>(
     'delete'
   );
@@ -36,24 +38,10 @@ const ToDoListContainer: React.FC = () => {
     });
   };
 
-  const dateAndTime = () => {
-    const date = new Date();
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
-    let formatedMinutes: string = '';
-    minutes.toString().length === 2
-      ? (formatedMinutes = minutes.toString())
-      : (formatedMinutes = `0${minutes}`);
-
-    return `${date.toLocaleDateString()} ${t(
-      'at'
-    )} ${hours}:${formatedMinutes} `;
-  };
-
   const handleAdd = () => {
     const randomId = Math.random().toString(36).substr(2, 9);
     obj.id = randomId;
-    obj.beginDate = dateAndTime();
+    obj.beginDate = dateAndTime(t);
 
     localStorage.set('toDoListArray', JSON.stringify([...toDoListArray, obj]));
 
@@ -75,7 +63,7 @@ const ToDoListContainer: React.FC = () => {
         return {
           ...item,
           isCompleted: !item.isCompleted,
-          endDate: itemIsCompleted ? '' : dateAndTime()
+          endDate: itemIsCompleted ? '' : dateAndTime(t)
         };
       }
 
@@ -113,7 +101,7 @@ const ToDoListContainer: React.FC = () => {
   };
 
   return (
-    <>
+    <PageHolder title={t('toDoList')}>
       <ToDoListRender
         toDoListArray={toDoListArray}
         modal={modal}
@@ -127,7 +115,7 @@ const ToDoListContainer: React.FC = () => {
         handleCheckBox={handleCheckBox}
         handleSelectDelete={handleSelectDelete}
       />
-    </>
+    </PageHolder>
   );
 };
 

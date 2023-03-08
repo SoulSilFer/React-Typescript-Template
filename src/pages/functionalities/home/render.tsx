@@ -89,6 +89,11 @@ const FunctionalitiesHomePage: React.FC = () => {
           stackButtonsLength={toDoLit.stackButtons.length}
           onClick={() => navigate(toDoLit.onClick.to)}
           title={toDoLit.title}
+          stackButtons={toDoLit.stackButtons.map((item) => ({
+            icon: item.icon,
+            title: item.title,
+            onClick: () => navigate(item.onClick.to)
+          }))}
         />
       </Box>
     );

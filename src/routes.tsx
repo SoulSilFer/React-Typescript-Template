@@ -46,7 +46,16 @@ const routes = [
     children: [
       { path: '', element: <Page.FunctionalitiesHomePageContainer /> },
       { path: 'get-random', element: <Page.GetRandomFunctionalityContainer /> },
+
       { path: 'to-do-list', element: <Page.ToDoListContainer /> },
+      {
+        path: 'to-do-list/month',
+        element: <Page.WeeklyToDoListContainer />
+      },
+      {
+        path: 'to-do-list/config',
+        element: <Page.ConfigToDoListContainer />
+      },
 
       {
         path: 'calculate/calculator',

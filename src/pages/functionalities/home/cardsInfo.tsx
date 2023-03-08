@@ -3,8 +3,11 @@ import {
   AccessibilityNewRounded,
   AttachMoneyRounded,
   CalculateRounded,
+  CalendarMonthRounded,
+  DateRangeRounded,
   DeviceThermostatRounded,
   PinRounded,
+  SettingsRounded,
   ShuffleRounded,
   StraightenRounded,
   SwapHorizRounded
@@ -98,12 +101,27 @@ export const ConvertBody = (t: any) => {
 
 export const ToDoListBody = (t: any) => {
   const obj = {
-    title: 'To do list',
+    title: t('toDoList'),
     onClick: {
       to: '/tools/to-do-list'
     },
     mainIcon: <SwapHorizRounded />,
-    stackButtons: []
+    stackButtons: [
+      {
+        icon: <CalendarMonthRounded />,
+        title: 'Mensal',
+        onClick: {
+          to: '/tools/to-do-list/month'
+        }
+      },
+      {
+        icon: <SettingsRounded />,
+        title: 'Configurar',
+        onClick: {
+          to: '/tools/to-do-list/config'
+        }
+      }
+    ]
   };
 
   return obj;

@@ -116,7 +116,14 @@ export const enUsTranslations = {
     delete: 'Delete',
     createAt: 'Create: ',
     finalizedAt: 'Finished: ',
-    at: 'at'
+    at: 'at',
+    sun: 'Sunday',
+    mon: 'Monday',
+    tue: 'Tuesday',
+    wed: 'Wednesday',
+    thu: 'Thursday',
+    fri: 'Friday',
+    sat: 'Saturday'
   }
 };
 

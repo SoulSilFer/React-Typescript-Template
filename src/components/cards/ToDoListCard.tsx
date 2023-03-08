@@ -1,7 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
 
 import { Box, Typography, Checkbox, styled, IconButton } from '@mui/material';
-import { ArrowDownwardRounded } from '@mui/icons-material';
+import {
+  ArrowDownwardRounded,
+  EditAttributesRounded,
+  EditRounded
+} from '@mui/icons-material';
 import { useTranslation } from 'react-i18next';
 
 const HeadContainer = styled(Box)(({ theme }) => ({
@@ -37,6 +41,8 @@ type Props = {
   disabled: boolean;
   setDelete: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void;
   deleteChecked: boolean;
+  editable?: boolean;
+  setEdit?: () => void;
 };
 
 const ToDoListCard: React.FC<Props> = ({
@@ -50,7 +56,9 @@ const ToDoListCard: React.FC<Props> = ({
   endDate,
   disabled,
   setDelete,
-  deleteChecked
+  deleteChecked,
+  editable,
+  setEdit
 }) => {
   const { t } = useTranslation();
 
@@ -108,51 +116,71 @@ const ToDoListCard: React.FC<Props> = ({
             }}
           />
         ) : (
-          <IconButton
-            sx={{
-              position: 'absolute',
-              right: '0.25rem',
-              top: '0.25rem',
-              cursor: 'pointer',
-              ...(showDetails
-                ? {
-                    animation: 'rotateDown 0.2s ease-in-out',
-                    '@keyframes rotateDown': {
-                      '0%': {
-                        transform: 'rotate(0deg)'
-                      },
-                      '100%': {
-                        transform: 'rotate(180deg)'
-                      }
-                    },
-                    transform: 'rotate(180deg)'
-                  }
-                : {
-                    animation: 'rotateUp 0.2s ease-in-out',
-                    '@keyframes rotateUp': {
-                      '0%': {
-                        transform: 'rotate(180deg)'
-                      },
-                      '100%': {
-                        transform: 'rotate(0deg)'
-                      }
-                    }
-                  }),
+          <>
+            {editable && (
+              <IconButton
+                sx={{
+                  position: 'absolute',
+                  right: '3.25rem',
+                  top: '0.25rem',
+                  cursor: 'pointer',
 
-              '&:hover': {
-                bgcolor: 'primary.dark'
-              }
-            }}
-            onClick={() => {
-              setShowDetails(!showDetails);
-            }}
-          >
-            <ArrowDownwardRounded
+                  '&:hover': {
+                    backgroundColor: 'primary.dark'
+                  }
+                }}
+                onClick={setEdit}
+              >
+                <EditRounded sx={{ color: 'primary.contrastText' }} />
+              </IconButton>
+            )}
+
+            <IconButton
               sx={{
-                color: 'primary.contrastText'
+                position: 'absolute',
+                right: '0.25rem',
+                top: '0.25rem',
+                cursor: 'pointer',
+                ...(showDetails
+                  ? {
+                      animation: 'rotateDown 0.2s ease-in-out',
+                      '@keyframes rotateDown': {
+                        '0%': {
+                          transform: 'rotate(0deg)'
+                        },
+                        '100%': {
+                          transform: 'rotate(180deg)'
+                        }
+                      },
+                      transform: 'rotate(180deg)'
+                    }
+                  : {
+                      animation: 'rotateUp 0.2s ease-in-out',
+                      '@keyframes rotateUp': {
+                        '0%': {
+                          transform: 'rotate(180deg)'
+                        },
+                        '100%': {
+                          transform: 'rotate(0deg)'
+                        }
+                      }
+                    }),
+
+                '&:hover': {
+                  bgcolor: 'primary.dark'
+                }
               }}
-            />
-          </IconButton>
+              onClick={() => {
+                setShowDetails(!showDetails);
+              }}
+            >
+              <ArrowDownwardRounded
+                sx={{
+                  color: 'primary.contrastText'
+                }}
+              />
+            </IconButton>
+          </>
         )}
       </HeadContainer>
 
@@ -167,7 +195,7 @@ const ToDoListCard: React.FC<Props> = ({
           bgcolor: 'primary.main',
           width: '80%',
           borderRadius: '0px 0px 0.75rem 0.75rem',
-          p: 1,
+          p: showDetails ? 1 : '0px',
           height: showDetails ? 'auto' : '0px'
         }}
       >
