@@ -108,13 +108,6 @@ export const ToDoListBody = (t: any) => {
     mainIcon: <SwapHorizRounded />,
     stackButtons: [
       {
-        icon: <CalendarMonthRounded />,
-        title: 'Mensal',
-        onClick: {
-          to: '/tools/to-do-list/month'
-        }
-      },
-      {
         icon: <SettingsRounded />,
         title: 'Configurar',
         onClick: {

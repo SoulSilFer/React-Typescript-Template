@@ -186,8 +186,8 @@ const ToDoListCard: React.FC<Props> = ({
 
       <Box
         sx={{
-          opacity: details && showDetails ? 1 : 0,
-          visibility: details && showDetails ? 'visible' : 'hidden',
+          opacity: showDetails ? 1 : 0,
+          visibility: showDetails ? 'visible' : 'hidden',
           transition: 'all 0.2s ease-in-out',
           display: 'flex',
           flexDirection: 'column',
@@ -211,9 +211,11 @@ const ToDoListCard: React.FC<Props> = ({
           </Typography>
         )}
 
-        <Typography color="primary.contrastText" variant="body2">
-          {details}
-        </Typography>
+        {details && (
+          <Typography color="primary.contrastText" variant="body2">
+            {details}
+          </Typography>
+        )}
       </Box>
     </Box>
   );

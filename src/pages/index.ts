@@ -9,8 +9,7 @@ export { default as FunctionalitiesHomePageContainer } from './functionalities/h
 export { default as GetRandomFunctionalityContainer } from './functionalities/get-random';
 
 export { default as ToDoListContainer } from './functionalities/to-do-list/list';
-export { default as WeeklyToDoListContainer } from './functionalities/to-do-list/weekly';
-export { default as ConfigToDoListContainer } from './functionalities/to-do-list//weekly/config';
+export { default as ConfigToDoListContainer } from './functionalities/to-do-list/config';
 
 export { default as CalculatorToolContainer } from './functionalities/calculate/calculator';
 export { default as CalculateIMCContainer } from './functionalities/calculate/imc';

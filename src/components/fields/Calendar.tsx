@@ -8,9 +8,15 @@ import { StaticDatePicker } from '@mui/x-date-pickers/StaticDatePicker';
 
 type Props = {
   onChange: (date: Date) => void;
+  disablePast?: boolean;
+  disableFuture?: boolean;
 };
 
-const Calendar: React.FC<Props> = ({ onChange }) => {
+const Calendar: React.FC<Props> = ({
+  onChange,
+  disableFuture,
+  disablePast
+}) => {
   const findLocale = (locale: string) => {
     switch (locale) {
       case 'pt-BR':
@@ -38,6 +44,8 @@ const Calendar: React.FC<Props> = ({ onChange }) => {
           }
         }}
         onChange={(a: any) => onChange(a.$d)}
+        disablePast={disablePast}
+        disableFuture={disableFuture}
       />
     </LocalizationProvider>
   );

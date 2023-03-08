@@ -22,6 +22,18 @@ const lightTheme = createTheme({
     text: {
       primary: colors.blueGrey[900],
       secondary: colors.blueGrey[600]
+    },
+    error: {
+      main: colors.red.A700,
+      contrastText: '#fff',
+      light: '#ff5f52',
+      dark: colors.red[900]
+    },
+    warning: {
+      main: colors.orange[600],
+      contrastText: '#fff',
+      light: '#ff9800',
+      dark: '#f57c00'
     }
   },
   typography: typography
@@ -54,6 +66,12 @@ const darkTheme = createTheme({
       primary: '#e6e5e8',
       secondary: '#adb0bb',
       disabled: '#adb0bb'
+    },
+    error: {
+      main: colors.red.A700,
+      contrastText: '#fff',
+      light: '#ff5f52',
+      dark: colors.red[900]
     }
   },
   shadows: [

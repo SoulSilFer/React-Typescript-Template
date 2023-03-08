@@ -36,6 +36,7 @@ const DashboardMainCard: React.FC<Props> = ({
         color: 'primary.contrastText',
         position: 'relative',
         margin: '40px',
+        marginBottom: stackButtonsLength === 3 ? '94px' : '40px',
 
         '& .primaryCard': {
           height: 110,

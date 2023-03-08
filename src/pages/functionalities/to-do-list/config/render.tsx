@@ -14,9 +14,9 @@ import {
 import { PageHolder } from 'components/PageHolder';
 import { Calendar } from 'components/fields';
 import { BaseButton } from 'components/buttons';
-import { ToDoList, ToDoListObj } from '../../list/types&utils';
+import { ToDoList, ToDoListObj } from '../list/types&utils';
 import { LocalStorage } from 'core/infra';
-import ToDoListRender from '../../list/render';
+import ToDoListRender from '../simpleList/render';
 import {
   getDaysOfWeekFromDate,
   getRemainingDaysOfMonth,
@@ -27,8 +27,9 @@ import {
   getRemainDaysOfTheWeek,
   MarksMonth
 } from './types&utils';
-import { dateAndTime, LocationToDoList, SwitchDaysOfWeek } from '../../utils';
+import { dateAndTime, LocationToDoList, SwitchDaysOfWeek } from '../utils';
 import { BaseModal } from 'components/modals';
+import { useSnackbar } from 'notistack';
 
 const Container = styled(Box)(({ theme }) => ({
   '& .MuiPickersLayout-contentWrapper': {
@@ -67,6 +68,7 @@ const ConfigToDoList: React.FC = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const localStorage = new LocalStorage();
+  const { enqueueSnackbar } = useSnackbar();
 
   const [openTotalMonths, setOpenTotalMonths] = useState<boolean>(false);
   const [totalMonths, setTotalMonths] = useState<number>(0);
@@ -327,6 +329,14 @@ const ConfigToDoList: React.FC = () => {
       localStorage.set('ConfiguredToDoList', JSON.stringify(objs));
     }
 
+    enqueueSnackbar(
+      <span id="snack_success">Configuração guardada com sucesso</span>,
+      {
+        variant: 'success',
+        autoHideDuration: 3000
+      }
+    );
+
     navigate('/tools');
   };
 
@@ -442,7 +452,14 @@ const ConfigToDoList: React.FC = () => {
           <BaseButton
             title={t('confirm')}
             onClick={handleConfirm}
-            disabled={toDoListArray.length === 0}
+            disabled={
+              toDoListArray.length === 0 ||
+              (!checks.dayToWeek &&
+                !checks.dayToMonth &&
+                !checks.dayToDay &&
+                !checks.dayToWeekToMonth &&
+                !checks.dayToWeekToYear)
+            }
           />
 
           <BaseButton title={t('cancel')} />

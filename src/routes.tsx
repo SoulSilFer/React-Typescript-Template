@@ -49,10 +49,6 @@ const routes = [
 
       { path: 'to-do-list', element: <Page.ToDoListContainer /> },
       {
-        path: 'to-do-list/month',
-        element: <Page.WeeklyToDoListContainer />
-      },
-      {
         path: 'to-do-list/config',
         element: <Page.ConfigToDoListContainer />
       },
