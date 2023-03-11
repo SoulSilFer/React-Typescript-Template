@@ -57,6 +57,7 @@ const ToDoListRender: React.FC<Props> = ({
           sx={{
             mb: 2
           }}
+          disabled={deleteTitle === 'confirm'}
         />
 
         {toDoListArray.length !== 0 && (

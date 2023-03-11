@@ -57,6 +57,7 @@ const routes = [
         path: 'calculate/calculator',
         element: <Page.CalculatorToolContainer />
       },
+
       { path: 'calculate/imc', element: <Page.CalculateIMCContainer /> },
 
       { path: 'convert/coin', element: <Page.CoinConverterContainer /> },

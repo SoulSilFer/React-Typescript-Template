@@ -1,39 +1,37 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+
 import {
   Box,
-  Avatar,
   Drawer,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Typography
+  Grid
 } from '@mui/material';
 
 import { Dashboard as DashboardIcon } from '@mui/icons-material';
-import Logo from './logo';
+
+import Logo from '../logo';
 import { useNavigate } from 'react-router-dom';
-import Grid from '@mui/material/Grid';
 
 type SidebarProps = {
   drawerWidth: number;
-  mobileOpen: boolean;
+  open: boolean;
   handleDrawerToggle: () => void;
+  menuPlacement: 'top' | 'side';
 };
 
 const Sidebar: React.FC<SidebarProps> = ({
   drawerWidth,
-  mobileOpen,
-  handleDrawerToggle
+  open,
+  handleDrawerToggle,
+  menuPlacement
 }) => {
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
   const sections = [
-    { name: 'Dashboard', path: 'dashboard', Icon: DashboardIcon },
-    { name: t('games'), path: '/games', Icon: DashboardIcon },
-    { name: 'Funcionalidades', path: '/functionalities', Icon: DashboardIcon }
+    { name: 'Ferramentas', path: '/tools', Icon: DashboardIcon }
   ];
 
   const drawer = (
@@ -48,29 +46,6 @@ const Sidebar: React.FC<SidebarProps> = ({
         }}
       >
         <Logo />
-      </Box>
-
-      <Box sx={{ mb: 5, mx: 2.5 }}>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            p: 2,
-            borderRadius: 2,
-            bgcolor: '#EDEFF1'
-          }}
-        >
-          <Avatar alt="photoURL" />
-
-          <Box sx={{ ml: 2 }}>
-            <Typography variant="subtitle2" sx={{ color: 'text.primary' }}>
-              John Doe
-            </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              Platform Admin
-            </Typography>
-          </Box>
-        </Box>
       </Box>
 
       <List>
@@ -112,7 +87,7 @@ const Sidebar: React.FC<SidebarProps> = ({
     >
       <Drawer
         variant="temporary"
-        open={mobileOpen}
+        open={open}
         onClose={handleDrawerToggle}
         ModalProps={{
           keepMounted: true
@@ -129,20 +104,23 @@ const Sidebar: React.FC<SidebarProps> = ({
         {drawer}
       </Drawer>
 
-      <Drawer
-        variant="permanent"
-        sx={{
-          display: { xs: 'none', xl: 'block' },
-          '& .MuiDrawer-paper': {
-            boxSizing: 'border-box',
-            width: drawerWidth,
-            bgcolor: 'background.neutral'
-          }
-        }}
-        open
-      >
-        {drawer}
-      </Drawer>
+      {menuPlacement === 'side' && (
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: 'none', xl: 'block' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
+              width: drawerWidth,
+              bgcolor: 'background.neutral',
+              marginTop: '48px'
+            }
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      )}
     </Box>
   );
 };

@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { Box, IconButton, Toolbar, styled, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
+import { Box, IconButton, Toolbar, styled, Typography } from '@mui/material';
 
 import {
   AccessibilityNewRounded,
   CalculateRounded,
-  CasinoRounded,
   ConstructionRounded,
   DeviceThermostatRounded,
-  GamesRounded,
-  Grid3x3Rounded,
-  Menu as MenuIcon,
+  Menu,
   MonetizationOnRounded,
   Settings as SettingsIcon,
   ShuffleRounded
@@ -18,6 +16,7 @@ import {
 
 import { useWindowDimensions } from 'utils/getWindowDimensions';
 import { RoutesEnum } from 'utils/routes-enum';
+import Logo from '../logo';
 
 const MenuHolder = styled(Box)(({ theme }) => ({
   position: 'absolute',
@@ -53,16 +52,17 @@ const SubMenuHolder = styled(Box)(({ theme, width }) => ({
 type TopbarProps = {
   handleDrawerToggle?: () => void;
   handleSettingsDrawerToggle: () => void;
+  menuPlacement: 'top' | 'side';
 };
 
 const Topbar: React.FC<TopbarProps> = ({
   handleDrawerToggle,
-  handleSettingsDrawerToggle
+  handleSettingsDrawerToggle,
+  menuPlacement
 }) => {
   const navigate = useNavigate();
 
   const [subToolsMenu, setSubToolsMenu] = useState<boolean>(false);
-  const [subGamesMenu, setSubGamesMenu] = useState<boolean>(false);
 
   const windowWidth = useWindowDimensions().width;
   const percentOfWidth = windowWidth * 0.4;
@@ -85,74 +85,22 @@ const Topbar: React.FC<TopbarProps> = ({
         {
           icon: <CalculateRounded />,
           label: 'Calculadora',
-          path: 'tools/item2'
+          path: '/tools/calculate/calculator'
         },
         {
           icon: <MonetizationOnRounded />,
           label: 'Conversão moeda',
-          path: 'tools/item2'
+          path: '/tools/convert/coin'
         },
         {
           icon: <DeviceThermostatRounded />,
           label: 'Conversão temperatura',
-          path: 'tools/item2'
+          path: '/tools/convert/temperature'
         },
         {
           icon: <AccessibilityNewRounded />,
           label: 'Calcular IMC',
-          path: 'tools/item2'
-        }
-      ]
-    },
-    {
-      icon: <GamesRounded />,
-      path: RoutesEnum.GAMES_DASHBOARD,
-      actions: {
-        enter: () => setSubGamesMenu(true),
-        leave: () => setSubGamesMenu(false)
-      },
-      itemsState: subGamesMenu,
-      subMenu: [
-        {
-          icon: <Grid3x3Rounded />,
-          label: 'Jogo da Velha',
-          path: RoutesEnum.GAMES_TIC_TAC_TOE
-        },
-        {
-          icon: <CasinoRounded />,
-          label: 'Rodar dado',
-          path: 'game/item1'
-        },
-        {
-          icon: (
-            <img
-              alt="a"
-              src="static/jokenpo.png"
-              width="30px"
-              height="30px"
-              style={{
-                borderRadius: '50%',
-                filter: 'invert(100%)'
-              }}
-            />
-          ),
-          label: 'Jokenpo',
-          path: RoutesEnum.GAMES_JOKENPO
-        },
-        {
-          icon: (
-            <img
-              alt="a"
-              src="static/teste.png"
-              width="20px"
-              height="20px"
-              style={{
-                borderRadius: '20%'
-              }}
-            />
-          ),
-          label: '2D Breakout',
-          path: 'game/item2'
+          path: '/tools/calculate/imc'
         }
       ]
     }
@@ -167,21 +115,36 @@ const Topbar: React.FC<TopbarProps> = ({
           justifyContent: 'space-between'
         }}
       >
-        {handleDrawerToggle ? (
-          <IconButton
-            size="large"
-            edge="start"
-            color="default"
-            sx={{ mr: 2, visibility: 'hidden' }}
-            onClick={handleDrawerToggle}
-          >
-            <MenuIcon />
-          </IconButton>
+        {menuPlacement === 'top' ? (
+          <Box
+            component="img"
+            src="/static/logo.png"
+            sx={{ height: 45, mr: 2 }}
+            p={1}
+          />
         ) : (
-          <div />
+          <>
+            <IconButton
+              size="large"
+              edge="start"
+              color="default"
+              sx={{ mr: 2 }}
+              onClick={handleDrawerToggle}
+            >
+              <Menu
+                sx={{
+                  color: 'primary.contrastText'
+                }}
+              />
+            </IconButton>
+          </>
         )}
 
-        <Box display="flex" alignItems="center" flexWrap="nowrap">
+        <Box
+          alignItems="center"
+          flexWrap="nowrap"
+          display={menuPlacement === 'top' ? 'flex' : 'none'}
+        >
           {menus.map((menu, index) => {
             return (
               <Box position="relative">

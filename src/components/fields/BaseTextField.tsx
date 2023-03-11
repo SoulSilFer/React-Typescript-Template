@@ -8,11 +8,11 @@ import {
   TextField,
   SxProps
 } from '@mui/material';
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, ReactNode, useState } from 'react';
 import BaseTooltip from './BaseTooltip';
 
 type Props = {
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   required?: boolean;
   label: string;
   name: string;
@@ -45,6 +45,9 @@ type Props = {
   textAlign?: string;
   onKeyDown?: React.KeyboardEventHandler<HTMLDivElement> | undefined;
   sx?: SxProps;
+  select?: boolean;
+  children?: ReactNode[];
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const labelField = (props: any) => {
@@ -95,7 +98,10 @@ const BaseTextField: React.FC<Props> = ({
   disabled,
   textAlign,
   onKeyDown,
+  select,
   sx,
+  children,
+  onChange,
   ...rest
 }) => {
   const [editCheck, setEditCheck] = useState<boolean>(false);
@@ -135,7 +141,7 @@ const BaseTextField: React.FC<Props> = ({
         autoComplete={autoComplete}
         autoFocus={autoFocus}
         type={type}
-        onChange={handleChange}
+        onChange={Boolean(handleChange) ? handleChange : onChange}
         error={error}
         helperText={helperText}
         InputProps={{
@@ -148,6 +154,7 @@ const BaseTextField: React.FC<Props> = ({
         multiline={multiline}
         rows={rows}
         onKeyDown={onKeyDown}
+        select={select}
         sx={{
           '& .MuiOutlinedInput-root': {
             borderRadius: borderRadius ? borderRadius : '0.75rem',
@@ -177,7 +184,9 @@ const BaseTextField: React.FC<Props> = ({
           readOnly: editabled && !editCheck
         }}
         {...rest}
-      />
+      >
+        {children}
+      </TextField>
     </>
   );
 };
