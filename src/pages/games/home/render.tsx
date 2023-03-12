@@ -26,6 +26,25 @@ const GamePageDashboard: React.FC = () => {
         mainIcon={<Grid3x3Rounded />}
         stackButtonsLength={0}
       />
+
+      <DashboardMainCard
+        title={t('ticTacToe')}
+        onClick={() => navigate('/games/jokenpo')}
+        mainIcon={
+          <img
+            alt="jokenpo"
+            src="/static/jokenpo.png"
+            style={{
+              width: '40px',
+              height: '40px',
+              marginRight: '5px',
+              borderRadius: '50%',
+              filter: 'invert(1)'
+            }}
+          />
+        }
+        stackButtonsLength={0}
+      />
     </Box>
   );
 };

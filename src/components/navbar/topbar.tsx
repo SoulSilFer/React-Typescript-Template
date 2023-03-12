@@ -120,6 +120,23 @@ const Topbar: React.FC<TopbarProps> = ({
           icon: <Grid3x3Rounded />,
           label: 'Jogo da Velha',
           path: RoutesEnum.GAMES_TIC_TAC_TOE
+        },
+        {
+          icon: (
+            <img
+              alt="jokenpo"
+              src="/static/jokenpo.png"
+              style={{
+                width: '20px',
+                height: '20px',
+                marginRight: '5px',
+                borderRadius: '50%',
+                filter: 'invert(1)'
+              }}
+            />
+          ),
+          label: 'Pedra, papel e tesoura',
+          path: RoutesEnum.GAMES_JOKENPO
         }
       ]
     }

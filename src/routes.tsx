@@ -19,8 +19,7 @@ const routes = [
     children: [
       { path: '', element: <Page.GamePageDashboard /> },
       { path: 'tic-tac-toe', element: <Page.TicTacToeContainer /> },
-      { path: 'chess', element: <Page.ChessGame /> },
-      { path: 'jokenpo', element: <Page.JokenpoGame /> },
+      { path: 'jokenpo', element: <Page.JokenpoContainer /> },
       { path: '*', element: <Navigate to="/games" /> }
     ]
   },
