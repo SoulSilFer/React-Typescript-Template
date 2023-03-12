@@ -1,15 +1,22 @@
-import React from 'react'
-import { StyledEngineProvider } from '@mui/material'
-import { SnackbarProvider } from 'notistack'
-import { SettingsContextProvider } from 'core/contexts/theme-context'
-import { Theme } from 'components'
-import './i18n'
+import React, { useEffect } from 'react';
+import { StyledEngineProvider } from '@mui/material';
+import { SnackbarProvider } from 'notistack';
+import { SettingsContextProvider } from 'core/contexts/theme-context';
+import { Theme } from 'components';
+import './i18n';
 
-import { useRoutes } from 'react-router-dom'
-import routes from './routes'
+import { useNavigate, useRoutes } from 'react-router-dom';
+import routes from './routes';
 
-function App (): React.ReactElement {
-  const content = useRoutes(routes)
+function App(): React.ReactElement {
+  const content = useRoutes(routes);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (content === null) {
+      navigate('/tools');
+    }
+  }, []);
 
   return (
     <StyledEngineProvider>
@@ -19,7 +26,7 @@ function App (): React.ReactElement {
         </Theme>
       </SettingsContextProvider>
     </StyledEngineProvider>
-  )
+  );
 }
 
-export default App
+export default App;

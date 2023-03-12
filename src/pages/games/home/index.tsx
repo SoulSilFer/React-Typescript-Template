@@ -1,6 +1,6 @@
 import React from 'react';
 
-import GamePageDashboard from './component';
+import GamePageDashboard from './render';
 
 const GamePageDashboardContainer: React.FC = () => {
   return <GamePageDashboard />;

@@ -1,7 +1,7 @@
 export { default as Home } from './app/home/home-wrapper';
 
 export { default as GamePageDashboard } from './games/home';
-export { default as TicTacToeGame } from './games/tic-tac-toe';
+export { default as TicTacToeContainer } from './games/tic-tac-toe';
 export { default as ChessGame } from './games/chess';
 export { default as JokenpoGame } from './games/jokenpo';
 

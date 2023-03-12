@@ -8,10 +8,12 @@ import {
   CalculateRounded,
   ConstructionRounded,
   DeviceThermostatRounded,
+  Grid3x3Rounded,
   Menu,
   MonetizationOnRounded,
   Settings as SettingsIcon,
-  ShuffleRounded
+  ShuffleRounded,
+  VideogameAssetRounded
 } from '@mui/icons-material';
 
 import { useWindowDimensions } from 'utils/getWindowDimensions';
@@ -63,6 +65,7 @@ const Topbar: React.FC<TopbarProps> = ({
   const navigate = useNavigate();
 
   const [subToolsMenu, setSubToolsMenu] = useState<boolean>(false);
+  const [subGamesMenu, setSubGamesMenu] = useState<boolean>(false);
 
   const windowWidth = useWindowDimensions().width;
   const percentOfWidth = windowWidth * 0.4;
@@ -103,6 +106,22 @@ const Topbar: React.FC<TopbarProps> = ({
           path: '/tools/calculate/imc'
         }
       ]
+    },
+    {
+      icon: <VideogameAssetRounded />,
+      path: RoutesEnum.GAMES_DASHBOARD,
+      actions: {
+        enter: () => setSubGamesMenu(true),
+        leave: () => setSubGamesMenu(false)
+      },
+      itemsState: subGamesMenu,
+      subMenu: [
+        {
+          icon: <Grid3x3Rounded />,
+          label: 'Jogo da Velha',
+          path: RoutesEnum.GAMES_TIC_TAC_TOE
+        }
+      ]
     }
   ];
 
@@ -119,7 +138,7 @@ const Topbar: React.FC<TopbarProps> = ({
           <Box
             component="img"
             src="/static/logo.png"
-            sx={{ height: 45, mr: 2 }}
+            sx={{ height: 45 }}
             p={1}
           />
         ) : (
@@ -128,7 +147,6 @@ const Topbar: React.FC<TopbarProps> = ({
               size="large"
               edge="start"
               color="default"
-              sx={{ mr: 2 }}
               onClick={handleDrawerToggle}
             >
               <Menu
@@ -183,7 +201,8 @@ const Topbar: React.FC<TopbarProps> = ({
                     width:
                       windowWidth < 840
                         ? `calc(${windowWidth}px - 157px)`
-                        : `calc(${windowWidth}px - ${percentOfWidth}px)`
+                        : `calc(${windowWidth}px - ${percentOfWidth}px)`,
+                    height: '60px'
                   }}
                   key={index}
                 >

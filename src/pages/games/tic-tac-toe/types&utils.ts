@@ -3,46 +3,23 @@ export type TicTacToeGameStatus = {
   player2: number;
   draws: number;
   games: number;
-  turn: 'player1' | 'player2';
+  turn: 'player1' | ('player2' | 'computer');
 };
 
 export type TicTacToeSections = {
-  A1: {
-    value: string;
-  };
-  A2: {
-    value: string;
-  };
-  A3: {
-    value: string;
-  };
-  B1: {
-    value: string;
-  };
-  B2: {
-    value: string;
-  };
-  B3: {
-    value: string;
-  };
-  C1: {
-    value: string;
-  };
-  C2: {
-    value: string;
-  };
-  C3: {
-    value: string;
-  };
-};
-
-export type TicTacToePlayersNames = {
-  player1: string;
-  player2: string;
+  A1: string;
+  A2: string;
+  A3: string;
+  B1: string;
+  B2: string;
+  B3: string;
+  C1: string;
+  C2: string;
+  C3: string;
 };
 
 export type TicTacToeEndGame = {
-  winner: 'player1' | 'player2' | 'draw' | null;
+  endGame: 'player1' | 'player2' | 'draw' | null;
 };
 
 export const InitialStateTicTacToeGameStatus: TicTacToeGameStatus = {
@@ -54,33 +31,15 @@ export const InitialStateTicTacToeGameStatus: TicTacToeGameStatus = {
 };
 
 export const InitialStateTicTacToeSections: TicTacToeSections = {
-  A1: {
-    value: ''
-  },
-  A2: {
-    value: ''
-  },
-  A3: {
-    value: ''
-  },
-  B1: {
-    value: ''
-  },
-  B2: {
-    value: ''
-  },
-  B3: {
-    value: ''
-  },
-  C1: {
-    value: ''
-  },
-  C2: {
-    value: ''
-  },
-  C3: {
-    value: ''
-  }
+  A1: '',
+  A2: '',
+  A3: '',
+  B1: '',
+  B2: '',
+  B3: '',
+  C1: '',
+  C2: '',
+  C3: ''
 };
 
 export const TicTacToeWinConditions = [
@@ -94,11 +53,6 @@ export const TicTacToeWinConditions = [
   ['A3', 'B2', 'C1']
 ];
 
-export const InitialStateTicTacToePlayersNames: TicTacToePlayersNames = {
-  player1: 'Player 1',
-  player2: 'Player 2'
-};
-
 export const InitialStateTicTacToeEndGame: TicTacToeEndGame = {
-  winner: null
+  endGame: null
 };

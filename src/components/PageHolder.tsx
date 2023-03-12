@@ -1,5 +1,5 @@
 import { ArrowCircleLeft } from '@mui/icons-material';
-import { Box, Grid, Typography, styled } from '@mui/material';
+import { Box, Grid, Typography, styled, SxProps } from '@mui/material';
 import React from 'react';
 
 const StyledContainer = styled(Box)(({ theme }) => ({
@@ -7,7 +7,6 @@ const StyledContainer = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   border: `1px solid ${theme.palette.primary.main}`,
   padding: '1rem',
-  marginBottom: '1rem',
   borderRadius: '0.75rem'
 }));
 
@@ -18,6 +17,8 @@ type Props = {
   mainSx?: any;
   maxWidth?: number | string;
   mt?: number | string;
+  noContainer?: boolean;
+  styledContainerSx?: SxProps;
 };
 
 export const PageHolder: React.FC<Props> = ({
@@ -26,7 +27,9 @@ export const PageHolder: React.FC<Props> = ({
   childrenAlign,
   mainSx,
   maxWidth,
-  mt
+  mt,
+  noContainer,
+  styledContainerSx
 }) => {
   return (
     <Grid
@@ -36,6 +39,7 @@ export const PageHolder: React.FC<Props> = ({
         flexDirection: 'column',
         ...mainSx
       }}
+      mb={6}
     >
       <Box
         sx={{
@@ -79,14 +83,19 @@ export const PageHolder: React.FC<Props> = ({
           mb: 2
         }}
       >
-        <StyledContainer
-          sx={{
-            maxWidth,
-            mt: mt ? mt : 2
-          }}
-        >
-          {children}
-        </StyledContainer>
+        {noContainer ? (
+          children
+        ) : (
+          <StyledContainer
+            sx={{
+              maxWidth,
+              mt: mt ? mt : 2,
+              ...styledContainerSx
+            }}
+          >
+            {children}
+          </StyledContainer>
+        )}
       </Box>
     </Grid>
   );
