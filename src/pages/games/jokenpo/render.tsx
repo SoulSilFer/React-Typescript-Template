@@ -4,6 +4,7 @@ import { Box, Stack, Typography, styled } from '@mui/material';
 
 import { PageHolder } from 'components/PageHolder';
 import { JokenpoChoices, JokenpoGameState } from './types&utils';
+import { useTranslation } from 'react-i18next';
 
 const ImgContainer = styled(Box)(({ theme }) => ({
   width: '80px',
@@ -28,8 +29,10 @@ const JokenpoRender: React.FC<Props> = ({
   endGameMsg,
   handleClick
 }) => {
+  const { t } = useTranslation();
+
   return (
-    <PageHolder title="Jokenpo">
+    <PageHolder title={t('jokenpo')}>
       <Box
         bgcolor="primary.light"
         borderRadius={1}
@@ -53,19 +56,19 @@ const JokenpoRender: React.FC<Props> = ({
         </Typography>
 
         <Typography variant="body1">
-          Jogador: <b>{gameState.ranking.player}</b>
+          {t('player')}: <b>{gameState.ranking.player}</b>
         </Typography>
 
         <Typography variant="body1">
-          Computador: <b>{gameState.ranking.computer}</b>
+          {t('computer')}: <b>{gameState.ranking.computer}</b>
         </Typography>
 
         <Typography variant="body1">
-          Empate: <b>{gameState.ranking.draw}</b>
+          {t('Draw')}: <b>{gameState.ranking.draw}</b>
         </Typography>
 
         <Typography variant="body1">
-          Partidas: <b>{gameState.ranking.totalGames}</b>
+          {t('matches')}: <b>{gameState.ranking.totalGames}</b>
         </Typography>
       </Box>
 
@@ -77,7 +80,7 @@ const JokenpoRender: React.FC<Props> = ({
         flexDirection="column"
       >
         <Typography variant="h6" mb={2}>
-          Escolha uma opção:
+          {`${t('chooseAnOption')}:`}
         </Typography>
 
         <Stack direction="row" gap={3}>
@@ -140,7 +143,7 @@ const JokenpoRender: React.FC<Props> = ({
         </Stack>
 
         <Typography variant="h6" mb={2} mt={2}>
-          O computador escolheu:
+          {`${t('theComputerChose')}:`}
         </Typography>
 
         <ImgContainer

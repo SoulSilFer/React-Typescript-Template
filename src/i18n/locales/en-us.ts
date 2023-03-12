@@ -123,7 +123,14 @@ export const enUsTranslations = {
     wed: 'Wednesday',
     thu: 'Thursday',
     fri: 'Friday',
-    sat: 'Saturday'
+    sat: 'Saturday',
+    conversion: 'Conversion',
+    coin: 'coin',
+    temperature: 'temperature',
+    playAgainst: 'Play against',
+    currentPlayer: 'Current player',
+    chooseAnOption: 'Choose an option',
+    drawAction: 'Draw!'
   }
 };
 

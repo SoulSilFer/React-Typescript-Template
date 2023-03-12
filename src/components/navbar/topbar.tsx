@@ -19,6 +19,7 @@ import {
 import { useWindowDimensions } from 'utils/getWindowDimensions';
 import { RoutesEnum } from 'utils/routes-enum';
 import Logo from '../logo';
+import { useTranslation } from 'react-i18next';
 
 const MenuHolder = styled(Box)(({ theme }) => ({
   position: 'absolute',
@@ -63,6 +64,7 @@ const Topbar: React.FC<TopbarProps> = ({
   menuPlacement
 }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [subToolsMenu, setSubToolsMenu] = useState<boolean>(false);
   const [subGamesMenu, setSubGamesMenu] = useState<boolean>(false);
@@ -82,27 +84,27 @@ const Topbar: React.FC<TopbarProps> = ({
       subMenu: [
         {
           icon: <ShuffleRounded />,
-          label: 'Pegar aleatório',
+          label: t('getRandom'),
           path: RoutesEnum.TOOLS_GET_RANDOM
         },
         {
           icon: <CalculateRounded />,
-          label: 'Calculadora',
+          label: t('calculator'),
           path: '/tools/calculate/calculator'
         },
         {
           icon: <MonetizationOnRounded />,
-          label: 'Conversão moeda',
+          label: `${t('conversion')} ${t('coin')}`,
           path: '/tools/convert/coin'
         },
         {
           icon: <DeviceThermostatRounded />,
-          label: 'Conversão temperatura',
+          label: `${t('conversion')} ${t('temperature')}`,
           path: '/tools/convert/temperature'
         },
         {
           icon: <AccessibilityNewRounded />,
-          label: 'Calcular IMC',
+          label: t('calculateBmi'),
           path: '/tools/calculate/imc'
         }
       ]
@@ -118,7 +120,7 @@ const Topbar: React.FC<TopbarProps> = ({
       subMenu: [
         {
           icon: <Grid3x3Rounded />,
-          label: 'Jogo da Velha',
+          label: t('ticTacToe'),
           path: RoutesEnum.GAMES_TIC_TAC_TOE
         },
         {
@@ -135,7 +137,7 @@ const Topbar: React.FC<TopbarProps> = ({
               }}
             />
           ),
-          label: 'Pedra, papel e tesoura',
+          label: t('jokenpo'),
           path: RoutesEnum.GAMES_JOKENPO
         }
       ]
@@ -219,7 +221,7 @@ const Topbar: React.FC<TopbarProps> = ({
                       windowWidth < 840
                         ? `calc(${windowWidth}px - 157px)`
                         : `calc(${windowWidth}px - ${percentOfWidth}px)`,
-                    height: '60px'
+                    minHeight: '60px'
                   }}
                   key={index}
                 >

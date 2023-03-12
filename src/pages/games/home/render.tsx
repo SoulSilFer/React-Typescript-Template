@@ -28,7 +28,7 @@ const GamePageDashboard: React.FC = () => {
       />
 
       <DashboardMainCard
-        title={t('ticTacToe')}
+        title={t('jokenpo')}
         onClick={() => navigate('/games/jokenpo')}
         mainIcon={
           <img

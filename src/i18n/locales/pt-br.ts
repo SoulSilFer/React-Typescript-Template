@@ -123,7 +123,14 @@ export const ptBrTranslations = {
     wed: 'Quarta-Feira',
     thu: 'Quinta-Feira',
     fri: 'Sexta-Feira',
-    sat: 'Sábado'
+    sat: 'Sábado',
+    conversion: 'Conversão',
+    coin: 'moeda',
+    temperature: 'temperatura',
+    playAgainst: 'Jogar contra',
+    currentPlayer: 'Jogador atual',
+    chooseAnOption: 'Escolha uma opção',
+    drawAction: 'Empatou!'
   }
 };
 

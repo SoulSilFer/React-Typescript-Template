@@ -78,7 +78,7 @@ const TicTacToeRender: React.FC<Props> = ({
   const { t } = useTranslation();
 
   return (
-    <PageHolder title="Jogo da velha">
+    <PageHolder title={t('ticTacToe')}>
       <Box
         bgcolor="primary.light"
         borderRadius={1}
@@ -108,31 +108,31 @@ const TicTacToeRender: React.FC<Props> = ({
         </Typography>
 
         <Typography variant="body1">
-          Jogador X: <b>{gameStatus.player1}</b>
+          {t('player')} X: <b>{gameStatus.player1}</b>
         </Typography>
 
         <Typography variant="body1">
-          Jogador O: <b>{gameStatus.player2}</b>
+          {t('player')} O: <b>{gameStatus.player2}</b>
         </Typography>
 
         <Typography variant="body1">
-          Empate: <b>{gameStatus.draws}</b>
+          {t('draw')}: <b>{gameStatus.draws}</b>
         </Typography>
 
         <Typography variant="body1">
-          Partidas: <b>{gameStatus.games}</b>
+          {t('matches')}: <b>{gameStatus.games}</b>
         </Typography>
 
         <FormControl>
           <FormLabel id="demo-row-radio-buttons-group-label">
-            Jogar contra:
+            {`${t('playAgainst')}:`}
           </FormLabel>
 
           <RadioGroup row>
             <FormControlLabel
               value="player"
               control={<Radio />}
-              label="Jogador"
+              label={t('player')}
               onChange={() => {
                 closeEndGameModal();
                 setAgainst('player');
@@ -143,7 +143,7 @@ const TicTacToeRender: React.FC<Props> = ({
             <FormControlLabel
               value="computer"
               control={<Radio />}
-              label="Computador"
+              label={t('computer')}
               onChange={() => {
                 closeEndGameModal();
                 setAgainst('computer');
@@ -276,7 +276,7 @@ const TicTacToeRender: React.FC<Props> = ({
 
       <Box display="flex" justifyContent="center">
         <Typography variant="h6">
-          Jogador atual:
+          {`${t('currentPlayer')}: `}
           <b>
             {gameStatus.turn === 'player1'
               ? 'X'

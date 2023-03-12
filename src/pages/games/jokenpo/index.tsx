@@ -8,8 +8,11 @@ import {
   JokenpoGameState
 } from './types&utils';
 import JokenpoRender from './render';
+import { useTranslation } from 'react-i18next';
 
 const JokenpoRenderContainer: React.FC = () => {
+  const { t } = useTranslation();
+
   const [gameState, setGameState] = useState<JokenpoGameState>(
     InitialStateJokenpoGame
   );
@@ -142,11 +145,11 @@ const JokenpoRenderContainer: React.FC = () => {
 
   useEnhancedEffect(() => {
     if (gameState.winner === 'player') {
-      setEndGameMsg('Você ganhou!');
+      setEndGameMsg(t('youWon'));
     } else if (gameState.winner === 'computer') {
-      setEndGameMsg('Você perdeu!');
+      setEndGameMsg(t('youLost'));
     } else {
-      setEndGameMsg('Empatou!');
+      setEndGameMsg(t('drawAction'));
     }
   }, [gameState.winner]);
 
