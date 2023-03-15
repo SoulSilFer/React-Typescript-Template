@@ -7,7 +7,8 @@ import {
   InputLabel,
   Select,
   MenuItem,
-  SelectChangeEvent
+  SelectChangeEvent,
+  SxProps
 } from '@mui/material';
 import { AddAlertRounded } from '@mui/icons-material';
 
@@ -19,8 +20,8 @@ export interface SelectFieldBaseProps {
   margin?: 'none' | 'normal' | 'dense';
   id: string;
   autoComplete?: string;
-  fullWidth: boolean;
-  sx?: any;
+  fullWidth?: boolean;
+  sx?: SxProps;
   required?: boolean;
   disabled?: boolean;
   onChange: (e: SelectChangeEvent<unknown>) => void;
@@ -62,6 +63,7 @@ const SelectField: React.FC<SelectFieldBaseProps> = ({
   size,
   onClick,
   fullItem,
+  sx,
   ...rest
 }) => {
   const [editCheck, setEditCheck] = useState<boolean>(false);
@@ -102,7 +104,7 @@ const SelectField: React.FC<SelectFieldBaseProps> = ({
             order: 999
           }
         },
-        ...rest.sx
+        ...sx
       }}
       focused
       size={size}

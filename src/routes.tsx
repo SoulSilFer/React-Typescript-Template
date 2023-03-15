@@ -6,6 +6,14 @@ import AppLayout from './layouts/app';
 
 const routes = [
   {
+    path: '',
+    element: <AppLayout />,
+    children: [
+      { path: '', element: <Page.HomeContainer /> },
+      { path: '*', element: <Navigate to="/" /> }
+    ]
+  },
+  {
     path: 'games',
     element: <AppLayout dashboard />,
     children: [
